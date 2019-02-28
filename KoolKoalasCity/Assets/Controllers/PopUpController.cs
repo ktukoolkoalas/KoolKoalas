@@ -16,7 +16,6 @@ public class PopUpController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         QuestionAnswered = false;
-        RetrieveQuestions();
 
 	}
 	
@@ -28,7 +27,7 @@ public class PopUpController : MonoBehaviour {
     public void RetrieveQuestions()
     {
         //retrieve questions from file
-        if (Questions.Length == 0) //if no questions found
+        if (Questions == null||Questions.Length == 0) //if no questions found
         {
             Questions = new Question[1];
             Questions[0] = new Question("What do Koalas eat?", "Eucalyptus leaves", "Bamboo trees", "Hay", "Smaller animals");
@@ -37,10 +36,11 @@ public class PopUpController : MonoBehaviour {
 
     public void OpenPopUp()
     {
+        gameObject.SetActive(true);
+        RetrieveQuestions();
         System.Random rnd = new System.Random();
         int index = rnd.Next(0, Questions.Length);
         ShowQuestion(Questions[index]);
-        gameObject.SetActive(true);
     }
 
     
