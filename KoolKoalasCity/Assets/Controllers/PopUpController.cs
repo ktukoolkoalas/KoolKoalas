@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour {
 
-    bool QuestionAnswered;
+    bool QuestionShwoing;
     Question[] Questions;
     public Text QuestionText;
     public Text Option1;
     public Text Option2;
     public Text Option3;
     public Text Option4;
+    Question CurrentQuestion;
 	// Use this for initialization
 	void Start () {
-        QuestionAnswered = false;
+        QuestionShwoing = true;
 
 	}
 	
@@ -41,6 +42,29 @@ public class PopUpController : MonoBehaviour {
         System.Random rnd = new System.Random();
         int index = rnd.Next(0, Questions.Length);
         ShowQuestion(Questions[index]);
+        QuestionShwoing = true;
+    }
+
+    public void CheckAnswer(Text answer)
+    {
+        if(CurrentQuestion == null)
+        {
+            //bad
+            return;
+        }
+        if (CurrentQuestion.IsAnswerCorrect(answer.text))
+        {
+            //change color
+        }
+
+        //wait
+        ClosePopup();
+    }
+
+    public void ClosePopup()
+    {
+        gameObject.SetActive(false);
+        QuestionShwoing = true;
     }
 
     
@@ -59,7 +83,6 @@ public class PopUpController : MonoBehaviour {
         }
         QuestionText.text = question.QuestionString;
         List<string> options = question.GetOptions();
-        string option = "";
         System.Random rnd = new System.Random();
         string[] randomizedOption = new string[4];
         for (int i = 0; 0 < options.Count; i++)
