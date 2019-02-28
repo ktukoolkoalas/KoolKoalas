@@ -6,23 +6,30 @@ using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour {
 
-    bool QuestionShwoing;
+    bool QuestionShowing;
+    bool AnswerAccepted;
+    bool AnswerCorrect;
     Question[] Questions;
     public Text QuestionText;
     public Text Option1;
     public Text Option2;
     public Text Option3;
     public Text Option4;
+    Text CurrentAnswer;
     Question CurrentQuestion;
 	// Use this for initialization
 	void Start () {
-        QuestionShwoing = true;
+        QuestionShowing = true;
+        AnswerAccepted = false;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (AnswerAccepted)
+        {
+            StartCoroutine(ShowingResult(AnswerCorrect, CurrentAnswer));
+        }
 	}
 
     public void RetrieveQuestions()
@@ -37,34 +44,46 @@ public class PopUpController : MonoBehaviour {
 
     public void OpenPopUp()
     {
+        if (QuestionShowing)
+        {
+            return;
+        }
         gameObject.SetActive(true);
         RetrieveQuestions();
         System.Random rnd = new System.Random();
         int index = rnd.Next(0, Questions.Length);
+        CurrentQuestion = Questions[index];
         ShowQuestion(Questions[index]);
-        QuestionShwoing = true;
+        QuestionShowing = true;
+        AnswerAccepted = false;
     }
 
     public void CheckAnswer(Text answer)
     {
         if(CurrentQuestion == null)
         {
-            //bad
+            Console.WriteLine("There is no current question!!");
             return;
         }
-        if (CurrentQuestion.IsAnswerCorrect(answer.text))
+        if (AnswerAccepted)
         {
-            //change color
+            Console.WriteLine("Answer is already made");
+            //do nothing
+            return;
         }
-
-        //wait
-        ClosePopup();
+        AnswerAccepted = true;
+        CurrentAnswer = answer;
+        AnswerCorrect = CurrentQuestion.IsAnswerCorrect(answer.text);
     }
 
     public void ClosePopup()
     {
+        if (AnswerAccepted)
+        {
+            return;
+        }
         gameObject.SetActive(false);
-        QuestionShwoing = true;
+        QuestionShowing = false;
     }
 
     
@@ -92,9 +111,13 @@ public class PopUpController : MonoBehaviour {
             options.RemoveAt(index);
         }
         Option1.text = randomizedOption[0];
+        Option1.transform.parent.GetComponent<Image>().color = Color.white;
         Option2.text = randomizedOption[1];
+        Option2.transform.parent.GetComponent<Image>().color = Color.white;
         Option3.text = randomizedOption[2];
+        Option3.transform.parent.GetComponent<Image>().color = Color.white;
         Option4.text = randomizedOption[3];
+        Option4.transform.parent.GetComponent<Image>().color = Color.white;
 
     }
 
@@ -133,5 +156,20 @@ public class PopUpController : MonoBehaviour {
             return answer == Options[0];
         }
 
+    }
+
+    private IEnumerator ShowingResult(bool answerCorrect, Text answer)
+    {
+        Color color = Color.red;
+        if (answerCorrect)
+        {
+            color = Color.green;
+        }
+        answer.transform.parent.GetComponent<Image>().color = color;
+        yield return new WaitForSecondsRealtime (5);
+        //something like awarding coins
+        //yield again
+        ClosePopup();
+        AnswerAccepted = false;
     }
 }
