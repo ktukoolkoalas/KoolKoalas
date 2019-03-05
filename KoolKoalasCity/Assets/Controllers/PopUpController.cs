@@ -49,6 +49,7 @@ public class PopUpController : MonoBehaviour {
             return;
         }
         gameObject.SetActive(true);
+        gameObject.transform.SetAsLastSibling();
         RetrieveQuestions();
         System.Random rnd = new System.Random();
         int index = rnd.Next(0, Questions.Length);
