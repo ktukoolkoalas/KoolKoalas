@@ -7,21 +7,22 @@ public class KoalaKoins : MonoBehaviour
 {
 
     public Text koinText;
-    private int koinCounter;
+    private long koinCounter;
 
     // Start is called before the first frame update
     void Start()
     {
-        koinCounter = 0;
+        koinCounter = 1000000000;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        koinText.text = koinCounter.ToString();
+        koinText.text = shortenKoinCounter();
     }
 
-    int addKoin (int koinsToAdd)
+    long addKoin (int koinsToAdd)
     {
         koinCounter += koinsToAdd;
 
@@ -38,5 +39,20 @@ public class KoalaKoins : MonoBehaviour
         }
 
         return false;
+    }
+
+    string shortenKoinCounter ()
+    {
+        string koinAmount;
+
+        if (koinCounter >= 10000 && koinCounter < 1000000000)
+            koinAmount = (koinCounter / 1000).ToString() + "K";
+        else
+            if (koinCounter >= 1000000000)
+            koinAmount = (koinCounter / 1000000000).ToString() + "MM";
+        else
+            koinAmount = koinCounter.ToString();
+
+        return koinAmount;
     }
 }
