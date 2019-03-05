@@ -12,16 +12,13 @@ public class KoalaKoins : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        koinCounter = 1000;
+        koinCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        subtractKoin(50);
-  
         koinText.text = koinCounter.ToString();
-        
     }
 
     int addKoin (int koinsToAdd)
