@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - BG
-  - Canvas Layer
-  - Front Layer
+  - 
+  - 
   - 
   - 
   - 
@@ -65,9 +65,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Front
-    uniqueID: 3928208829
-    locked: 0
-  - name: Back
-    uniqueID: 2302263909
+  - name: 9th
+    uniqueID: 1288797759
     locked: 0
