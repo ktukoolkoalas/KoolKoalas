@@ -19,17 +19,17 @@ public class KoalaKoins : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        koinText.text = shortenKoinCounter();
+        koinText.text = ShortenKoinCounter();
     }
 
-    long addKoin (int koinsToAdd)
+    long AddKoin (int koinsToAdd)
     {
         koinCounter += koinsToAdd;
 
         return koinCounter;
     }
 
-    bool subtractKoin(int koinsToSubtract)
+    bool SubtractKoin(int koinsToSubtract)
     {
         if (koinsToSubtract <= koinCounter)
         {
@@ -41,7 +41,7 @@ public class KoalaKoins : MonoBehaviour
         return false;
     }
 
-    string shortenKoinCounter ()
+    string ShortenKoinCounter ()
     {
         string koinAmount;
 
