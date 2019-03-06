@@ -41,15 +41,16 @@ public class KoalaKoins : MonoBehaviour
         return false;
     }
 
-    string ShortenKoinCounter ()
+    string ShortenKoinCounter()
     {
         string koinAmount;
 
-        if (koinCounter >= 10000 && koinCounter < 1000000000)
-            koinAmount = (koinCounter / 1000).ToString() + "K";
-        else
-            if (koinCounter >= 1000000000)
+        if (koinCounter >= 1000000000)
             koinAmount = (koinCounter / 1000000000).ToString() + "MM";
+        else if (koinCounter >= 10000000)
+            koinAmount = (koinCounter / 1000000).ToString() + "M";
+        else if (koinCounter >= 10000)
+            koinAmount = (koinCounter / 1000).ToString() + "K";
         else
             koinAmount = koinCounter.ToString();
 
