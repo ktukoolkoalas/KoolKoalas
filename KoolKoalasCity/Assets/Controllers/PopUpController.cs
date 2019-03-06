@@ -17,6 +17,9 @@ public class PopUpController : MonoBehaviour {
     public Text Option4;
     Text CurrentAnswer;
     Question CurrentQuestion;
+
+    public int PopupWaitTimeInS = 5;
+    public int CoinReward = 50;
 	// Use this for initialization
 	void Start () {
         QuestionShowing = true;
@@ -75,6 +78,10 @@ public class PopUpController : MonoBehaviour {
         AnswerAccepted = true;
         CurrentAnswer = answer;
         AnswerCorrect = CurrentQuestion.IsAnswerCorrect(answer.text);
+        if (AnswerCorrect)
+        {
+            GlobalData.KoinChange += CoinReward;
+        }
     }
 
     public void ClosePopup()
@@ -167,9 +174,7 @@ public class PopUpController : MonoBehaviour {
             color = Color.green;
         }
         answer.transform.parent.GetComponent<Image>().color = color;
-        yield return new WaitForSecondsRealtime (5);
-        //something like awarding coins
-        //yield again
+        yield return new WaitForSecondsRealtime (PopupWaitTimeInS);
         ClosePopup();
         AnswerAccepted = false;
     }

@@ -715,7 +715,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PopUp
+  m_Text: 'Question! (Placeholder)
+
+'
 --- !u!1 &7757207962199081527
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +950,7 @@ MonoBehaviour:
   Option2: {fileID: 7757207961136794872}
   Option3: {fileID: 7757207962959762360}
   Option4: {fileID: 7757207961265732842}
+  PopupWaitTimeInS: 5
 --- !u!1 &7757207962452979441
 GameObject:
   m_ObjectHideFlags: 0
