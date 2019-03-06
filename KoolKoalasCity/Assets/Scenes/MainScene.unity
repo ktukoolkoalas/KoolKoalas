@@ -3778,11 +3778,6 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3123453711631560803, guid: ac0b58996942fa14393a3c9c092c96cf,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5178723000544738192, guid: ac0b58996942fa14393a3c9c092c96cf,
         type: 3}
       propertyPath: m_IsActive
