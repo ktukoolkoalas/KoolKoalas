@@ -38,6 +38,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: first
+    uniqueID: 3397367851
+    locked: 0
+  - name: second
+    uniqueID: 247141439
+    locked: 0
+  - name: third
+    uniqueID: 123743827
+    locked: 0
+  - name: 4th
+    uniqueID: 3589628639
+    locked: 0
+  - name: 5th
+    uniqueID: 2445598665
+    locked: 0
+  - name: 6th
+    uniqueID: 168618429
+    locked: 0
+  - name: 7th
+    uniqueID: 3063425369
+    locked: 0
+  - name: 8th
+    uniqueID: 1431035523
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
