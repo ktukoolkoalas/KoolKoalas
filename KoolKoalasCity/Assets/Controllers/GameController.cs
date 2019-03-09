@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
                 Debug.Log(hit.transform.name);
                 if (hit.transform.name == "GameLinkCube")
                 {
-                    SceneManager.LoadScene("GameScene");
+                    SceneManager.LoadScene("MemoryGame");
                 }
             }
 
