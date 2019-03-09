@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MemorySceneController : MonoBehaviour
 {
+    private void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+    }
+
     public const int gridRows = 2;
     public const int gridCols = 4;
     public const float offsetX = 4f;
@@ -91,9 +99,10 @@ public class MemorySceneController : MonoBehaviour
         {
             _score--;
             scoreLabel.text = "Score: " + _score;
-            yield return new WaitForSeconds(1f);
-            _firstRevealed.Unreveal();
+            yield return new WaitForSeconds(1.5f);
             _secondRevealed.Unreveal();
+            _firstRevealed.Unreveal();
+           
         }
         _firstRevealed = null;
         _secondRevealed = null;
