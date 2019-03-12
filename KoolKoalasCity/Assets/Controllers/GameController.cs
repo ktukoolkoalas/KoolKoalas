@@ -30,9 +30,17 @@ public class GameController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.transform.name == "GameLinkCube")
+                if (hit.transform.name == "GameLinkCube" || hit.transform.name == "GameLinkCube (1)")
                 {
-                    SceneManager.LoadScene("GameScene");
+                    if (GlobalData.HeartCounter > 0)
+                    {
+                        SceneManager.LoadScene("GameScene");
+                        GlobalData.HeartChange--;
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
 
