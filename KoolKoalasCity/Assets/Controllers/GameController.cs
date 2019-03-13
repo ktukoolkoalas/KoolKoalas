@@ -37,13 +37,10 @@ public class GameController : MonoBehaviour
                     if (GlobalData.HeartCounter > 0)
                     {
                         SceneManager.LoadScene("GameScene");
-                        Console.WriteLine("kazkas gaunasi");
                         GlobalData.HeartChange--;
                     }
                     else
                     {                        
-                        Console.WriteLine("kazkas gaunasi");
-                        //HeartAlertObject.GetComponent<HeartController>().CloseAlert();
                         HeartAlertObject.ShowAlert();
                     }
                 }
