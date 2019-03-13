@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 //This is the main script that will run the game.
 public class GameController : MonoBehaviour
 {
 
     public GameObject CityObject;
+    public GameObject HeartAlertObject;
 
     // Use this for initialization
     void Start()
@@ -35,11 +37,13 @@ public class GameController : MonoBehaviour
                     if (GlobalData.HeartCounter > 0)
                     {
                         SceneManager.LoadScene("GameScene");
+                        Console.WriteLine("kazkas gaunasi");
                         GlobalData.HeartChange--;
                     }
                     else
-                    {
-
+                    {                        
+                        Console.WriteLine("kazkas gaunasi");
+                        HeartAlertObject.GetComponent<HeartController>().CloseAlert();
                     }
                 }
             }

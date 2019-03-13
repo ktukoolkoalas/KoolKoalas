@@ -54,15 +54,15 @@ public class HeartController : MonoBehaviour
 
     }
 
-    /*public void ShowAlert()
+    public void ShowAlert()
     {
         gameObject.SetActive(true);
-        gameObject.transform.SetAsLastSibling();
-        AlertText.text = "You don't have enough lives";
-        QuestionShowing = true;
-        WaitForSecondsRealtime(10);
+        gameObject.transform.SetAsLastSibling(); //paskutini uzkrauna
+    }
+
+    public void CloseAlert()
+    {
         gameObject.SetActive(false);
-        QuestionShowing = false;
-    }*/
+    }
 
 }
