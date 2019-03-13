@@ -32,24 +32,19 @@ public class GameController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.transform.name == "GameLinkCube" || hit.transform.name == "GameLinkCube (1)")
+                if (hit.transform.tag == "GameLinkHouse")
                 {
                     if (GlobalData.HeartCounter > 0)
                     {
                         SceneManager.LoadScene("GameScene");
-                        Console.WriteLine("kazkas gaunasi");
                         GlobalData.HeartChange--;
                     }
                     else
                     {                        
-                        Console.WriteLine("kazkas gaunasi");
-                        //HeartAlertObject.GetComponent<HeartController>().CloseAlert();
                         HeartAlertObject.ShowAlert();
                     }
                 }
             }
-
-
         }
     }
 }
