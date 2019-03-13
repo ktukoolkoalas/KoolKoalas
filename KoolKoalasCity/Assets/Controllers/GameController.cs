@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 {
 
     public GameObject CityObject;
-    public GameObject HeartAlertObject;
+    public HeartController HeartAlertObject;
 
     // Use this for initialization
     void Start()
@@ -43,7 +43,8 @@ public class GameController : MonoBehaviour
                     else
                     {                        
                         Console.WriteLine("kazkas gaunasi");
-                        HeartAlertObject.GetComponent<HeartController>().CloseAlert();
+                        //HeartAlertObject.GetComponent<HeartController>().CloseAlert();
+                        HeartAlertObject.ShowAlert();
                     }
                 }
             }

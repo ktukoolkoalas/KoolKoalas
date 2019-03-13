@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CityObject: {fileID: 1854696177}
-  HeartAlertObject: {fileID: 1945787809}
+  HeartAlertObject: {fileID: 2045822479}
 --- !u!1001 &786270577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -748,12 +748,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4581528642220495575}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1945787809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1068808047202570068, guid: 3c27939070c8c4b47bcba3f8be610474,
+--- !u!114 &2045822479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1068808047440495563, guid: 3c27939070c8c4b47bcba3f8be610474,
     type: 3}
   m_PrefabInstance: {fileID: 1068808048525234933}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e95c2a6140921244a5e89dce894cedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2109274157 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7751875441869929517, guid: 3d349c03f19db6a4abb9695ab5067e9d,
@@ -783,6 +789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HeartObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068808047202570068, guid: 3c27939070c8c4b47bcba3f8be610474,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
         type: 3}
@@ -842,22 +853,22 @@ PrefabInstance:
     - target: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -674
+      value: -384
       objectReference: {fileID: 0}
     - target: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -24
+      value: -155.5
       objectReference: {fileID: 0}
     - target: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 311
       objectReference: {fileID: 0}
     - target: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
         type: 3}

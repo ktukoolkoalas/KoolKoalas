@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class HeartController : MonoBehaviour
 {
-    public Text heartText;
+    public Text HeartText;
+    public GameObject HeartAlert;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class HeartController : MonoBehaviour
             GlobalData.HeartChange++;
             SubtractHeart(1);
         }
-        heartText.text = GlobalData.HeartCounter.ToString();
+        HeartText.text = GlobalData.HeartCounter.ToString();
     }
 
     bool AddHeart(int heartsToAdd)
@@ -56,13 +57,13 @@ public class HeartController : MonoBehaviour
 
     public void ShowAlert()
     {
-        gameObject.SetActive(true);
-        gameObject.transform.SetAsLastSibling(); //paskutini uzkrauna
+        HeartAlert.SetActive(true);
+        HeartAlert.transform.SetAsLastSibling(); //paskutini uzkrauna
     }
 
     public void CloseAlert()
     {
-        gameObject.SetActive(false);
+        HeartAlert.SetActive(false);
     }
 
 }
