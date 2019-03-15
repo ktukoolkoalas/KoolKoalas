@@ -39,8 +39,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: null
-    uniqueID: 1702537655
+  - name: Background1
+    uniqueID: 1353666953
+    locked: 0
+  - name: Background2
+    uniqueID: 823173819
     locked: 0
   - name: first
     uniqueID: 3397367851
