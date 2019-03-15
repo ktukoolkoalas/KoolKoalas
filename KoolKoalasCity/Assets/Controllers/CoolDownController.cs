@@ -27,6 +27,7 @@ public class CoolDownController : MonoBehaviour
             GlobalData.HeartChange++;
             print("update");
             nextHeartTime = currentTime.AddSeconds(30);
+
         }
 
     }
