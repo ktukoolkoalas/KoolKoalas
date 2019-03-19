@@ -5,11 +5,18 @@ using UnityEngine;
 public class FallingTrashScript : MonoBehaviour
 {
     public int speed;
-    public GameObject trash;
+    public Sprite plastic;
+    public Sprite glass;
+    public Sprite paper;
+    public Sprite[] trashes = new Sprite[3];
     // Start is called before the first frame update
     void Start()
     {
         speed = 5;
+        this.GetComponent<SpriteRenderer>().sprite = trashes[Random.Range(0, 2)];
+        trashes[0] = plastic;
+        trashes[1] = glass;
+        trashes[2] = paper;
     }
 
     // Update is called once per frame
@@ -48,5 +55,13 @@ public class FallingTrashScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MoveToTop();
+        this.GetComponent<SpriteRenderer>().sprite = trashes[Random.Range(0, 2)];
+
+        if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin")
+        {
+            Debug.Log("yeyyyyyyyy");
+        }
+        else
+            Destroy(this.gameObject);
     }
 }
