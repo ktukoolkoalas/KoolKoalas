@@ -32,8 +32,6 @@ public class MiniGameController : MonoBehaviour
         }
         GlobalData.KoinChange += CoinReward;
         GlobalData.NeedToUpdateProgress = true;
-        print("grizimas i main scena");
-        print(DateTime.Now);
         SceneManager.LoadScene(GlobalData.MainScene);
     }
 

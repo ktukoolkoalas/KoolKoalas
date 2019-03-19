@@ -5,35 +5,34 @@ using UnityEngine;
 
 public class CoolDownController : MonoBehaviour
 {
-    public DateTime currentTime;
-    private DateTime nextHeartTime;
+    public DateTime CurrentTime;
+    private DateTime NextHeartTime;
     public DateTime NextPopUpTime;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentTime = DateTime.Now;
-        nextHeartTime = currentTime.AddSeconds(30);
-        NextPopUpTime = currentTime.AddSeconds(45);
+        CurrentTime = DateTime.Now;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime = DateTime.Now;
-        if (currentTime >= nextHeartTime && GlobalData.HeartCounter != 5)
+        CurrentTime = DateTime.Now;
+        if (NextHeartTime == null)
+            NextHeartTime = CurrentTime.AddSeconds(30);
+        if (NextPopUpTime == null)
+            NextPopUpTime = CurrentTime.AddSeconds(45);
+        if (CurrentTime >= NextHeartTime && NextHeartTime != null)
         {
-            GlobalData.HeartChange++;
-            nextHeartTime = currentTime.AddSeconds(30);
-
+            //GlobalData.HeartChange++; //pakeist i +5
+            NextHeartTime = CurrentTime.AddSeconds(30);
         }
-        if (currentTime >= NextPopUpTime)
+        if (CurrentTime >= NextPopUpTime && NextPopUpTime != null)
         {
-            print("popup pasikeicia");
-            print(GlobalData.PopUpCounter);
-            GlobalData.PopUpCounter = 1;
-            NextPopUpTime = currentTime.AddSeconds(45);
+            //GlobalData.PopUpCounter++; //pakeist i 5
+            NextPopUpTime = CurrentTime.AddSeconds(45);
         }
     }
 }
