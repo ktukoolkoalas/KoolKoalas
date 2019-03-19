@@ -5,22 +5,48 @@ using UnityEngine;
 public class FallingTrashScript : MonoBehaviour
 {
     public int speed;
+    public GameObject trash;
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * Time.deltaTime * speed);
+        Vector3 vector = new Vector3(1 * Time.deltaTime * speed * Input.GetAxis("Horizontal"), -1 * Time.deltaTime * speed, 0);
+        transform.Translate(vector);
 
-        /*if (transform.position.y < -17)
+        // ground
+        if (transform.position.y < -3)
         {
-            float randomNumber = Random.Range(-19f, 19f);
-            Vector3 newPosition = new Vector3(randomNumber, 17, 0);
-            transform.position = newPosition;
-        }*/
+            MoveToTop();
+        }
+
+        //left side of the screen
+        if (transform.position.x < -9.8f)
+        {
+            transform.position = new Vector3(9.85f, transform.position.y, 0);
+        }
+
+        //right side of the screen
+        if (transform.position.x > 9.85f)
+        {
+            transform.position = new Vector3(-9.8f, transform.position.y, 0);
+        }
+
+    }
+
+    void MoveToTop()
+    {
+        float randomNumber = Random.Range(-8.7f, 8.7f);
+        Vector3 newPosition = new Vector3(randomNumber, 6, 0);
+        transform.position = newPosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        MoveToTop();
     }
 }
