@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CoinReward: 10
+  PopUpButton: {fileID: 200906744}
 --- !u!1 &190013971
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +479,12 @@ PrefabInstance:
 --- !u!224 &200906743 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2621118248761111745, guid: ac0b58996942fa14393a3c9c092c96cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 200906742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &200906744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5178723000544738192, guid: ac0b58996942fa14393a3c9c092c96cf,
     type: 3}
   m_PrefabInstance: {fileID: 200906742}
   m_PrefabAsset: {fileID: 0}

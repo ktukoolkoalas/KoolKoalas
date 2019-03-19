@@ -47,6 +47,7 @@ public class PopUpController : MonoBehaviour {
 
     public void OpenPopUp()
     {
+        GlobalData.PopUpCounter--;
         if (QuestionShowing)
         {
             return;
