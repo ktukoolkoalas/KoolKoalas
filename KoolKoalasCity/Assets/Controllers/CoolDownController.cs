@@ -26,6 +26,7 @@ public class CoolDownController : MonoBehaviour
         {
             GlobalData.HeartChange++;
             nextHeartTime = currentTime.AddSeconds(30);
+
         }
         if (currentTime >= NextPopUpTime)
         {
