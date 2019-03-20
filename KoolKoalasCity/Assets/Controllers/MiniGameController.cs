@@ -13,13 +13,13 @@ public class MiniGameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowPopUp();
+        ShowPopUpButton();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ShowPopUp();
+        ShowPopUpButton();
     }
 
 
@@ -31,11 +31,10 @@ public class MiniGameController : MonoBehaviour
             //return;
         }
         GlobalData.KoinChange += CoinReward;
-        GlobalData.NeedToUpdateProgress = true;
         SceneManager.LoadScene(GlobalData.MainScene);
     }
 
-    public void ShowPopUp()
+    public void ShowPopUpButton()
     {
         if (GlobalData.PopUpCounter > 0)
         {

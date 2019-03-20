@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,5 +14,12 @@ public static class GlobalData
     public static int HeartChange = 0;
 
     public static float ProgressBarValue = 0;
+
+    public static int MemoryGameLevel = 1;
+    public static int MemoryGameBeaten = 0;
+
+
+    public static DateTime NextHeartTime;
+    public static DateTime NextPopUpTime;
 
 }
