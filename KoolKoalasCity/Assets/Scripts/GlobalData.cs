@@ -14,7 +14,4 @@ public static class GlobalData
 
     public static float ProgressBarValue = 0;
 
-    public static int MemoryGameLevel = 1;
-    public static int MemoryGameBeaten = 0;
-
 }

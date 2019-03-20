@@ -31,6 +31,7 @@ public class MiniGameController : MonoBehaviour
             //return;
         }
         GlobalData.KoinChange += CoinReward;
+        GlobalData.NeedToUpdateProgress = true;
         SceneManager.LoadScene(GlobalData.MainScene);
     }
 
