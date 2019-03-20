@@ -36,11 +36,14 @@ public class GameController : MonoBehaviour
                 {
                     if (GlobalData.HeartCounter > 0)
                     {
-                        SceneManager.LoadScene("GameScene");
+                        if (hit.transform.name == "MemoryGameCube")
+                        {
+                            SceneManager.LoadScene("MemoryGame");
+                        }
                         GlobalData.HeartChange--;
                     }
                     else
-                    {                        
+                    {
                         HeartAlertObject.ShowAlert();
                     }
                 }
