@@ -47,6 +47,8 @@ public class PopUpController : MonoBehaviour {
 
     public void OpenPopUp()
     {
+        GlobalData.PopUpCounter--;
+        print("sumazeja popup");
         if (QuestionShowing)
         {
             return;
@@ -81,6 +83,7 @@ public class PopUpController : MonoBehaviour {
         if (AnswerCorrect)
         {
             GlobalData.KoinChange += CoinReward;
+            GlobalData.HeartChange++;
         }
     }
 
