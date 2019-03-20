@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class FallingTrashScript : MonoBehaviour
 {
-    public int speed;
+    int verticalSpeed;
+    int horizontalSpeed;
     public Sprite plastic;
     public Sprite glass;
     public Sprite paper;
-    public Sprite[] trashes = new Sprite[3];
     // Start is called before the first frame update
     void Start()
     {
-        speed = 5;
-        this.GetComponent<SpriteRenderer>().sprite = trashes[Random.Range(0, 2)];
-        trashes[0] = plastic;
-        trashes[1] = glass;
-        trashes[2] = paper;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 vector = new Vector3(1 * Time.deltaTime * speed * Input.GetAxis("Horizontal"), -1 * Time.deltaTime * speed, 0);
+        Vector3 vector = new Vector3(1 * Time.deltaTime * horizontalSpeed * Input.GetAxis("Horizontal"), -1 * Time.deltaTime * verticalSpeed, 0);
         transform.Translate(vector);
 
         // ground
@@ -45,8 +41,21 @@ public class FallingTrashScript : MonoBehaviour
 
     }
 
+    public void Stop()
+    {
+        verticalSpeed = horizontalSpeed = 0;
+        GlobalData.TrashGameDropping = false;
+    }
+
+    public void Drop(int vSpeed, int hSpeed)
+    {
+        verticalSpeed = vSpeed;
+        horizontalSpeed = hSpeed;
+    }
+
     void MoveToTop()
     {
+        Stop();
         float randomNumber = Random.Range(-8.7f, 8.7f);
         Vector3 newPosition = new Vector3(randomNumber, 6, 0);
         transform.position = newPosition;
@@ -55,13 +64,11 @@ public class FallingTrashScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MoveToTop();
-        this.GetComponent<SpriteRenderer>().sprite = trashes[Random.Range(0, 2)];
+        
 
         if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin")
         {
             Debug.Log("yeyyyyyyyy");
         }
-        else
-            Destroy(this.gameObject);
     }
 }

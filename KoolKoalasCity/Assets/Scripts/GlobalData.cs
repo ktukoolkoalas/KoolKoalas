@@ -11,4 +11,6 @@ public static class GlobalData
 
     public static float ProgressBarValue = 0;
 
+    public static bool TrashGameDropping = false;
+
 }
