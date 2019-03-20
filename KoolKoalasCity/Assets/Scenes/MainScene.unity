@@ -1049,6 +1049,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 29.104515
       objectReference: {fileID: 0}
+    - target: {fileID: 5885287011549924616, guid: 97fca9607e41a70479b4861bd5124529,
+        type: 3}
+      propertyPath: m_Name
+      value: 'MemoryGameCube '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fca9607e41a70479b4861bd5124529, type: 3}
 --- !u!1001 &4960676122987097197
