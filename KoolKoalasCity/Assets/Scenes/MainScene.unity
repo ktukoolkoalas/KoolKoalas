@@ -3663,11 +3663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1540348236}
     m_Modifications:
-    - target: {fileID: 3801700355494363574, guid: ac0b58996942fa14393a3c9c092c96cf,
-        type: 3}
-      propertyPath: m_Name
-      value: PopUp1
-      objectReference: {fileID: 0}
     - target: {fileID: 2621118248761111745, guid: ac0b58996942fa14393a3c9c092c96cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3772,6 +3767,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3801700355494363574, guid: ac0b58996942fa14393a3c9c092c96cf,
+        type: 3}
+      propertyPath: m_Name
+      value: PopUp1
       objectReference: {fileID: 0}
     - target: {fileID: 3123453711631560803, guid: ac0b58996942fa14393a3c9c092c96cf,
         type: 3}
@@ -6645,7 +6645,7 @@ GameObject:
   - component: {fileID: 1566312291}
   - component: {fileID: 1566312290}
   m_Layer: 0
-  m_Name: GameLinkCube
+  m_Name: MemoryGameCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
