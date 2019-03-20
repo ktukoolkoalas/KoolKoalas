@@ -17,7 +17,7 @@ public class MainCard : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(isFaceUp || !controller.canReveal)
+        if(isFaceUp || !controller.CanReveal)
         {
             return;
         }

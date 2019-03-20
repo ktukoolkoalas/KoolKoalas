@@ -15,17 +15,20 @@ public class MemorySceneController : MonoBehaviour
 
     public const int gridRows = 2;
     public const int gridCols = 4;
-    public const float offsetX = 4f;
-    public const float offsetY = 5f;
+    public const float minOffsetX = 4f;
+    public const float minOffsetY = 5f;
     public int _matches = 0;
+
+    int[] MatchIDs;
+    int currentLevel;
 
     [SerializeField] private MainCard originalCard;
     [SerializeField] private Sprite[] images;
     private void Start()
     {
         Vector3 startPos = originalCard.transform.position;
-        int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 };
-        numbers = ShuffleArray(numbers);
+        int[] numbers = GetLevel();
+        MatchIDs = ShuffleArray(numbers);
 
         for(int i = 0; i < gridCols; i++)
         {
@@ -41,13 +44,29 @@ public class MemorySceneController : MonoBehaviour
                     card = Instantiate(originalCard) as MainCard;
                 }
                 int index = j * gridCols + i;
-                int id = numbers[index];
+                int id = MatchIDs[index];
                 card.ChangeSprite(id, images[id]);
 
-                float posX = (offsetX * i) + startPos.x;
-                float posY = (offsetY * j) + startPos.y;
+                float posX = (minOffsetX * i) + startPos.x;
+                float posY = (minOffsetY * j) + startPos.y;
                 card.transform.position = new Vector3(posX, posY, startPos.z);
             }
+        }
+    }
+    // for making more levels
+    /*private void GetOffset(out float offsetX, out float offsetY)
+    {
+        
+    }*/
+
+    private int[] GetLevel()
+    {
+        switch (GlobalData.MemoryGameLevel)
+        {
+            default:
+                int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 };
+                currentLevel = 1;
+                return numbers;
         }
     }
     private int[] ShuffleArray(int[] numbers)
@@ -69,7 +88,7 @@ public class MemorySceneController : MonoBehaviour
     private int _score = 0;
     [SerializeField] private TextMesh scoreLabel;
 
-    public bool canReveal
+    public bool CanReveal
     {
         get { return _secondRevealed == null; }
     }
@@ -106,8 +125,14 @@ public class MemorySceneController : MonoBehaviour
         }
         _firstRevealed = null;
         _secondRevealed = null;
-        if(_matches == 4)
+        if(_matches == MatchIDs.Length/2)
         {
+            if(GlobalData.MemoryGameBeaten < currentLevel)
+            {
+                GlobalData.MemoryGameBeaten++;
+                GlobalData.MemoryGameLevel++;
+                GlobalData.NeedToUpdateProgress = true;
+            }
             SceneManager.LoadScene("GameScene");
         }
     }

@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.transform.name == "GameLinkCube")
+                if (hit.transform.name == "MemoryGameCube")
                 {
                     SceneManager.LoadScene("MemoryGame");
                 }
