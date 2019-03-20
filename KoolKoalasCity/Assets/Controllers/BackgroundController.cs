@@ -1,36 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class BackgroundController : MonoBehaviour
 {
     public DateTime currentTime;
-    private DateTime nextDayBackgroundActivatedTime;
-    private DateTime nextDayBackgroundUnactivatedTime;
+    private DateTime DayCycleTime;
 
-    public GameObject DayBackground;
+    public int DayCycle = 10;
+    public bool IsDay = true;
+    
+    public Sprite DayBackground;
+    public Sprite NightBackground;
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = DateTime.Now;
-        nextDayBackgroundActivatedTime = currentTime.AddSeconds(10);
-        nextDayBackgroundUnactivatedTime = currentTime.AddSeconds(20);
+        DayCycleTime = currentTime.AddSeconds(DayCycle);
+        this.GetComponent<SpriteRenderer>().sprite = DayBackground;
     }
 
     // Update is called once per frame
     void Update()
     {
         currentTime = DateTime.Now;
-        if (currentTime >= nextDayBackgroundActivatedTime)
+        if (currentTime >= DayCycleTime)
         {
-            DayBackground.SetActive(true);
+            if (IsDay)
+            {
+                this.GetComponent<SpriteRenderer>().sprite = NightBackground;
+                IsDay = false;
+            }
+            else
+            {
+                this.GetComponent<SpriteRenderer>().sprite = DayBackground;
+                IsDay = true;
+            }
+            
+            DayCycleTime = currentTime.AddSeconds(DayCycle);
         }
-        if (currentTime >= nextDayBackgroundUnactivatedTime)
-        {
-            DayBackground.SetActive(false);
-        }
+        
 
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7313824758889146990}
   - component: {fileID: 7313824758889146991}
   - component: {fileID: 7313824758889146989}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 7313824758889146993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0973159, y: 1.0973159, z: 1.0973159}
+  m_LocalScale: {x: 0.037702605, y: 0.037702605, z: 0.037702605}
   m_Children:
   - {fileID: 7313824759255304512}
   - {fileID: 7313824759600301685}
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -89,7 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71e3c74a08e54f4ab6a5728c69f7175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayBackground: {fileID: 7313824759600301686}
+  DayCycle: 10
+  IsDay: 1
+  DayBackground: {fileID: 21300000, guid: 788ed898d8cf8c54ea23f6166f428ef8, type: 3}
+  NightBackground: {fileID: 21300000, guid: 3ffa9023b6ba92f4ca8b5211bd06f801, type: 3}
 --- !u!1 &7313824759255304513
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7313824759255304512
 Transform:
   m_ObjectHideFlags: 0

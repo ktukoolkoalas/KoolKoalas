@@ -38,10 +38,12 @@ public class GameController : MonoBehaviour
                     {
                         if(hit.transform.name == "MemoryGameCube")
                         {
+                            Debug.Log("Going to Memory Game");
                             SceneManager.LoadScene("MemoryGame");
                         }
-                        if (hit.transform.name == "TestCube")
+                        else if (hit.transform.name == "TestCube")
                         {
+                            
                         }
                         else
                         {
