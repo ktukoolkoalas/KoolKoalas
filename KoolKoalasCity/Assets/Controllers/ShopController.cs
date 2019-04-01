@@ -9,13 +9,12 @@ public class ShopController : MonoBehaviour
     public GameObject FoodStorage;
     public GameObject StuffStorage;
     public int FoodPrice = 5;
-    public Text Koins;
+    public int StuffPrice = 15;
 
     public void ShowShop()
     {
         ShopWindow.SetActive(true);
         ShopWindow.transform.SetAsLastSibling();
-        Koins.text = GlobalData.KoinCounter.ToString();
     }
 
     public void CloseShop()
@@ -41,10 +40,15 @@ public class ShopController : MonoBehaviour
     {
         if (GlobalData.KoinCounter >= FoodPrice)
         {
-            GlobalData.KoinChange = 5;
-            Koins.text = GlobalData.KoinCounter.ToString();
-            print(GlobalData.KoinCounter);
+            GlobalData.KoinChange -= FoodPrice;
         }        
     }
 
+    public void BuyStuff()
+    {
+        if (GlobalData.KoinCounter >= StuffPrice)
+        {
+            GlobalData.KoinChange -= StuffPrice;
+        }
+    }
 }
