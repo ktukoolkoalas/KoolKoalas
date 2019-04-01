@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 //This is the main script that will run the game.
 public class GameController : MonoBehaviour
 {
 
     public GameObject CityObject;
+    public HeartController HeartAlertObject;
 
     // Use this for initialization
     void Start()
@@ -30,17 +32,35 @@ public class GameController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.name);
-                if (hit.transform.name == "GameLinkCube")
+                if (hit.transform.tag == "GameLinkHouse")
                 {
-                    SceneManager.LoadScene("GameScene");
+                    if (GlobalData.HeartCounter > 0)
+                    {
+                        if(hit.transform.name == "MemoryGameCube")
+                        {
+                            Debug.Log("Going to Memory Game");
+                            SceneManager.LoadScene("MemoryGame");
+                        }
+                        else if (hit.transform.name == "TestCube")
+                        {
+                            
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("GameScene");
+                        }
+                        GlobalData.HeartChange--;
+                    }
+                    else
+                    {                        
+                        HeartAlertObject.ShowAlert();
+                    }
                 }
                 if (hit.transform.name == "RecycleGameCube")
                 {
                     SceneManager.LoadScene("RecyclingGame");
                 }
             }
-
-
         }
     }
 }

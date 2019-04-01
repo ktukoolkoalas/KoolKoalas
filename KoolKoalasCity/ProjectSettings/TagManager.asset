@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameLinkHouse
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background1
+    uniqueID: 1353666953
+    locked: 0
+  - name: Background2
+    uniqueID: 823173819
+    locked: 0
   - name: first
     uniqueID: 3397367851
     locked: 0
