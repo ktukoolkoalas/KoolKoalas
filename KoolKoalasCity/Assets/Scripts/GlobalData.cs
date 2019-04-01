@@ -21,5 +21,6 @@ public static class GlobalData
 
     public static DateTime NextHeartTime;
     public static DateTime NextPopUpTime;
+    public static DateTime NextRewardTime;
 
 }
