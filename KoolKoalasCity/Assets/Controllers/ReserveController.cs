@@ -9,4 +9,8 @@ public class ReserveController : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void GoToReserve()
+    {
+        SceneManager.LoadScene("ReserveScene");
+    }
 }
