@@ -8,6 +8,7 @@ public class ShopController : MonoBehaviour
     public GameObject ShopWindow;
     public GameObject FoodStorage;
     public GameObject StuffStorage;
+    public GameObject NoMoneyAlert;
     public int FoodPrice = 5;
     public int StuffPrice = 15;
 
@@ -22,6 +23,12 @@ public class ShopController : MonoBehaviour
         ShopWindow.SetActive(false);
         FoodStorage.SetActive(false);
         StuffStorage.SetActive(false);
+        NoMoneyAlert.SetActive(false);
+
+    }
+    public void CloseAlert()
+    {
+        NoMoneyAlert.SetActive(false);
     }
 
     public void ShowFoodStorage()
@@ -41,7 +48,12 @@ public class ShopController : MonoBehaviour
         if (GlobalData.KoinCounter >= FoodPrice)
         {
             GlobalData.KoinChange -= FoodPrice;
-        }        
+        }
+        else
+        {
+            NoMoneyAlert.SetActive(true);
+            NoMoneyAlert.transform.SetAsLastSibling();
+        }
     }
 
     public void BuyStuff()
@@ -49,6 +61,11 @@ public class ShopController : MonoBehaviour
         if (GlobalData.KoinCounter >= StuffPrice)
         {
             GlobalData.KoinChange -= StuffPrice;
+        }
+        else
+        {
+            NoMoneyAlert.SetActive(true);
+            NoMoneyAlert.transform.SetAsLastSibling();
         }
     }
 }
