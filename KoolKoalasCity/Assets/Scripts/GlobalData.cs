@@ -8,7 +8,7 @@ public static class GlobalData
     public static string MainScene = "";
     public static bool NeedToUpdateProgress = false;
     public static int KoinChange = 0;
-    public static int KoinCounter = 0; //used only by KoinController
+    public static int KoinCounter = 30; //used only by KoinController
     public static int PopUpCounter = 2;
     public static int HeartCounter = 5;
     public static int HeartChange = 0;
