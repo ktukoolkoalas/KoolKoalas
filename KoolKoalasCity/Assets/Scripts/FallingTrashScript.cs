@@ -13,14 +13,12 @@ public class FallingTrashScript : MonoBehaviour
     public Sprite paper;
     public Text scoreText;
     public Text livesLeftText;
-    public int lifeCount = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
-        print(lifeCount);
-        livesLeftText.text = lifeCount.ToString();
+        livesLeftText.text = GlobalData.lifeCount.ToString();
     }
 
     // Update is called once per frame
@@ -28,13 +26,12 @@ public class FallingTrashScript : MonoBehaviour
     {
         Vector3 vector = new Vector3(1 * Time.deltaTime * horizontalSpeed * Input.GetAxis("Horizontal"), -1 * Time.deltaTime * verticalSpeed, 0);
         transform.Translate(vector);
-        livesLeftText.text = lifeCount.ToString();
+        livesLeftText.text = GlobalData.lifeCount.ToString();
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
-        
-        // ground
-        if (transform.position.y < -4)
+
+        if (GlobalData.lifeCount <= 0)
         {
-            MoveToTop();
+            SceneManager.LoadScene("EndScene");
         }
 
         //left side of the screen
@@ -47,13 +44,6 @@ public class FallingTrashScript : MonoBehaviour
         if (transform.position.x > 9.85f)
         {
             transform.position = new Vector3(-9.8f, transform.position.y, 0);
-        }
-
-        if (lifeCount == 0)
-        {
-            //SceneManager.LoadScene("EndScene");
-            //GlobalData.TrashGameDropping = false; 
-            
         }
 
     }
@@ -81,26 +71,17 @@ public class FallingTrashScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MoveToTop();
-
-         if (RightContainer(collision))
-         {
-             GlobalData.RecyclingGameScore++;
-         }
-         if (!RightContainer(collision) && lifeCount > 0)
-         {
-             lifeCount--;
-             print(lifeCount + "minusas");
-         }
-    }
-    private bool RightContainer (Collider2D collision)
-    {
-        if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin")
+        if (GlobalData.lifeCount > 0)
         {
-            return true;
+            if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin")
+            {
+                GlobalData.RecyclingGameScore++;
+            }
+            if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name != "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name != "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name != "GlassBin")
+            {
+                GlobalData.lifeCount--;
+            }
+            
         }
-        if (collision.gameObject.name == "ground")
-            return false;
-
-        return false;
     }
 }

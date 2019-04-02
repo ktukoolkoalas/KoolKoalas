@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -5, y: -3}
+  m_AnchoredPosition: {x: -5.02, y: -2.74}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.42767408}
 --- !u!50 &51534097
@@ -243,7 +243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 6, y: 6}
   m_EdgeRadius: 0
 --- !u!1 &96840940
 GameObject:
@@ -850,7 +850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.205, y: -4.032}
+  m_AnchoredPosition: {x: -0, y: -4.032}
   m_SizeDelta: {x: 19.405, y: 2.553}
   m_Pivot: {x: 0.5, y: 0.50000006}
 --- !u!61 &1464639214
@@ -877,7 +877,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 1}
+  m_Size: {x: 1000, y: 0.5}
   m_EdgeRadius: 0
 --- !u!212 &1464639215
 SpriteRenderer:
@@ -1086,12 +1086,12 @@ PrefabInstance:
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.58
+      value: 7.32
       objectReference: {fileID: 0}
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
@@ -1211,7 +1211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3}
+  m_AnchoredPosition: {x: 0, y: -2.72}
   m_SizeDelta: {x: 2.743, y: 4.854}
   m_Pivot: {x: 0, y: 0}
 --- !u!212 &1835687253
@@ -1307,7 +1307,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 6, y: 6}
   m_EdgeRadius: 0
 --- !u!1 &1864725137
 GameObject:
@@ -1539,12 +1539,12 @@ PrefabInstance:
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0.28
       objectReference: {fileID: 0}
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.59
+      value: 7.64
       objectReference: {fileID: 0}
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
@@ -1596,6 +1596,11 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8325468739779247404, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fcf15b3b79c70146b0cc56705bcb8d6, type: 3}
 --- !u!1 &2088036788
@@ -1634,7 +1639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.06, y: -3}
+  m_AnchoredPosition: {x: 5.19, y: -2.72}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.35532033}
 --- !u!212 &2088036790
@@ -1738,7 +1743,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 4.9}
+  m_Size: {x: 6, y: 6}
   m_EdgeRadius: 0
 --- !u!1001 &2135843885
 PrefabInstance:
@@ -1755,12 +1760,12 @@ PrefabInstance:
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07
+      value: -5.26
       objectReference: {fileID: 0}
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.59
+      value: 7.42
       objectReference: {fileID: 0}
     - target: {fileID: 8325468739779247402, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
         type: 3}

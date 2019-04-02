@@ -23,6 +23,6 @@ public static class GlobalData
     public static DateTime NextPopUpTime;
 
     public static int RecyclingGameScore = 0;
-    //public static int lifeCount = 3;
+    public static int lifeCount = 3;
 
 }
