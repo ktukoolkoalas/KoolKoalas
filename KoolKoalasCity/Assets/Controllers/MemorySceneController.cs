@@ -11,21 +11,28 @@ public class MemorySceneController : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
+        
     }
-
-    public const int gridRows = 2;
-    public const int gridCols = 4;
+    
+    public int gridRows = 2;
+    public int gridCols = 4;
     public const float minOffsetX = 4f;
-    public const float minOffsetY = 5f;
+    public const float minOffsetY = -5f;
     public int _matches = 0;
+ //   public int timeLeft = GlobalData.MemoryGameLevel * 20;
+    public Camera Camera1;
+    public Camera Camera2;
+    public Camera Camera3;
 
     int[] MatchIDs;
-    int currentLevel;
+    public int currentLevel;
 
     [SerializeField] private MainCard originalCard;
     [SerializeField] private Sprite[] images;
     private void Start()
     {
+        timeLabel.text = "Time left: " + (GlobalData.MemoryGameLevel * 30).ToString();
+        StartCoroutine(Counter());
         Vector3 startPos = originalCard.transform.position;
         int[] numbers = GetLevel();
         MatchIDs = ShuffleArray(numbers);
@@ -58,15 +65,58 @@ public class MemorySceneController : MonoBehaviour
     {
         
     }*/
-
+    private IEnumerator Counter()
+    {
+        /*timeLeft -= Time.deltaTime();
+        timeLabel.text = "Time left: " + timeLeft.ToString();
+        if (timeLeft == 0)
+        {
+            SceneManager.LoadScene("MainScene");
+        }*/
+        int currCountdownValue = GlobalData.MemoryGameLevel * 30;
+        while (currCountdownValue > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
+            if (currCountdownValue == 0)
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+            else timeLabel.text = "Time left: " + currCountdownValue.ToString();
+        }
+    }
     private int[] GetLevel()
     {
         switch (GlobalData.MemoryGameLevel)
         {
-            default:
-                int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 };
-                currentLevel = 1;
+            case 2:
+                int [] numbers = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, };
+                currentLevel = 2;
+                gridCols = 5;
+                gridRows = 2;
+                Camera1.enabled = false;
+                Camera2.enabled = true;
+                Camera3.enabled = false;
+//                timeLeft = GlobalData.MemoryGameLevel * 20;
                 return numbers;
+            case 3:
+                int[] numbers2 = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8 };
+                currentLevel = 3;
+                gridCols = 6;
+                gridRows = 3;
+                Camera1.enabled = false;
+                Camera2.enabled = false;
+                Camera3.enabled = true;
+//                timeLeft = GlobalData.MemoryGameLevel * 20;
+                return numbers2;
+            case 1:
+            default:
+                int[] numbers3 = { 0, 0, 1, 1, 2, 2, 3, 3 };
+                currentLevel = 1;
+                Camera1.enabled = true;
+                Camera2.enabled = false;
+                Camera3.enabled = false;
+                return numbers3;
         }
     }
     private int[] ShuffleArray(int[] numbers)
@@ -86,7 +136,7 @@ public class MemorySceneController : MonoBehaviour
     private MainCard _secondRevealed;
 
     private int _score = 0;
-    [SerializeField] private TextMesh scoreLabel;
+    [SerializeField] private TextMesh timeLabel;
 
     public bool CanReveal
     {
@@ -110,14 +160,14 @@ public class MemorySceneController : MonoBehaviour
     {
         if(_firstRevealed.id == _secondRevealed.id)
         {
-            _score++;
-            scoreLabel.text = "Score: " + _score;
+            //_score++;
+            //scoreLabel.text = "Score: " + _score;
             _matches++;
         }
-        else
+        if(_firstRevealed.id != _secondRevealed.id)
         {
-            _score--;
-            scoreLabel.text = "Score: " + _score;
+            //_score--;
+            //scoreLabel.text = "Score: " + _score;
             yield return new WaitForSeconds(1.5f);
             _secondRevealed.Unreveal();
             _firstRevealed.Unreveal();
@@ -133,6 +183,7 @@ public class MemorySceneController : MonoBehaviour
                 GlobalData.MemoryGameLevel++;
                 GlobalData.NeedToUpdateProgress = true;
             }
+            yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene("GameScene");
         }
     }
