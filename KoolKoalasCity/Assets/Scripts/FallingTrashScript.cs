@@ -8,6 +8,7 @@ public class FallingTrashScript : MonoBehaviour
 {
     int verticalSpeed;
     int horizontalSpeed;
+    public int livesCount = 3;
     public Sprite plastic;
     public Sprite glass;
     public Sprite paper;
@@ -18,7 +19,7 @@ public class FallingTrashScript : MonoBehaviour
     void Start()
     {
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
-        livesLeftText.text = GlobalData.lifeCount.ToString();
+        livesLeftText.text = livesCount.ToString();
     }
 
     // Update is called once per frame
@@ -26,11 +27,12 @@ public class FallingTrashScript : MonoBehaviour
     {
         Vector3 vector = new Vector3(1 * Time.deltaTime * horizontalSpeed * Input.GetAxis("Horizontal"), -1 * Time.deltaTime * verticalSpeed, 0);
         transform.Translate(vector);
-        livesLeftText.text = GlobalData.lifeCount.ToString();
+        livesLeftText.text = livesCount.ToString();
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
 
-        if (GlobalData.lifeCount <= 0)
+        if (livesCount <= 0)
         {
+            Stop();
             SceneManager.LoadScene("EndScene");
         }
 
@@ -71,15 +73,15 @@ public class FallingTrashScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MoveToTop();
-        if (GlobalData.lifeCount > 0)
+        if (livesCount > 0)
         {
-            if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin")
+            if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
                 GlobalData.RecyclingGameScore++;
             }
-            if (this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name != "PaperBin" || this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name != "PlasticBin" || this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name != "GlassBin")
+            else if (collision.gameObject.name == "PaperBin" || collision.gameObject.name == "PlasticBin" || collision.gameObject.name == "GlassBin")
             {
-                GlobalData.lifeCount--;
+                livesCount--;
             }
             
         }
