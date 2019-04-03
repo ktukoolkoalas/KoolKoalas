@@ -45,6 +45,10 @@ public class GameController : MonoBehaviour
                         {
                             
                         }
+                        else if (hit.transform.name == "RecycleGameCube")
+                        {
+                            SceneManager.LoadScene("RecyclingGame");
+                        }
                         else
                         {
                             SceneManager.LoadScene("GameScene");
@@ -55,10 +59,6 @@ public class GameController : MonoBehaviour
                     {                        
                         HeartAlertObject.ShowAlert();
                     }
-                }
-                if (hit.transform.name == "RecycleGameCube")
-                {
-                    SceneManager.LoadScene("RecyclingGame");
                 }
             }
         }
