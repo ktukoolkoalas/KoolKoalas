@@ -15,12 +15,15 @@ public static class GlobalData
 
     public static float ProgressBarValue = 0;
 
+    public static bool TrashGameDropping = false;
     public static int MemoryGameLevel = 1;
     public static int MemoryGameBeaten = 0;
-
 
     public static DateTime NextHeartTime;
     public static DateTime NextPopUpTime;
     public static DateTime NextRewardTime;
+
+    public static int RecyclingGameScore = 0;
+    public static int lifeCount = 3;
 
 }

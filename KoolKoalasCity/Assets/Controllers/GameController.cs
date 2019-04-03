@@ -56,7 +56,13 @@ public class GameController : MonoBehaviour
                         HeartAlertObject.ShowAlert();
                     }
                 }
+                if (hit.transform.name == "RecycleGameCube")
+                {
+                    SceneManager.LoadScene("RecyclingGame");
+                }
             }
         }
     }
+
+
 }

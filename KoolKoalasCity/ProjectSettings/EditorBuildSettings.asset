@@ -6,15 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 09c313a7682762448974fc0a33c2b139
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 09c313a7682762448974fc0a33c2b139
+    path: Assets/Scenes/EndScene.unity
+    guid: ed742f447f2b7f34e8a0635d765b747d
   - enabled: 1
     path: Assets/Scenes/MemoryGame.unity
     guid: 3df12bfe015fb7b4fa4efc719ebe87c3
   - enabled: 1
+    path: Assets/Scenes/RecyclingGame.unity
+    guid: 0efb4d3f0c4e250408d8f3a1eaacf6f9
     path: Assets/Scenes/ReserveScene.unity
     guid: f1b44a98a8ad6b7459b3248cc7a63c02
   m_configObjects: {}
