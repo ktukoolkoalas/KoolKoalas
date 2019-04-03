@@ -18,6 +18,7 @@ public class FallingTrashScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GlobalData.RecyclingGameScore = 0;
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
         livesLeftText.text = livesCount.ToString();
     }
@@ -72,16 +73,17 @@ public class FallingTrashScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MoveToTop();
         if (livesCount > 0)
         {
             if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
                 GlobalData.RecyclingGameScore++;
+                MoveToTop();
             }
-            else if (collision.gameObject.name == "PaperBin" || collision.gameObject.name == "PlasticBin" || collision.gameObject.name == "GlassBin")
+            else if (collision.gameObject.name == "PaperBin" || collision.gameObject.name == "PlasticBin" || collision.gameObject.name == "GlassBin" || collision.gameObject.name == "ground")
             {
                 livesCount--;
+                MoveToTop();
             }
             
         }
