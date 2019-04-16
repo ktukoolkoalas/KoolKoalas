@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class KoalaCareController : MonoBehaviour
 {
@@ -179,6 +180,11 @@ public class KoalaCareController : MonoBehaviour
         playAlert.SetActive(false);
         playButton.interactable = true;
         foodButton.interactable = true;
+    }
+
+    public void GoToTown()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     //---------------------------------

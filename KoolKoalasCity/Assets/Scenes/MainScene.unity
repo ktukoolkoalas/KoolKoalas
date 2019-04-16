@@ -1526,7 +1526,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1540348237}
-        m_MethodName: GoToReserve
+        m_MethodName: GoToPou
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
