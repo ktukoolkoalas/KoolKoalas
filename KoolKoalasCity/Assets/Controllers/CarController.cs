@@ -10,6 +10,19 @@ public class CarController : MonoBehaviour
     Quaternion targetRotation;
     Rigidbody _rigidBody;
 
+    Vector3 lastPosition;
+
+    float _sideSlipAmount = 0;
+
+    public float SideSlipAmount
+    {
+        get
+        {
+            return _sideSlipAmount;
+        }
+    }
+
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
@@ -18,6 +31,16 @@ public class CarController : MonoBehaviour
     void Update()
     {
         SetRotationPoint();
+        SetSideSlip();
+    }
+
+    void SetSideSlip()
+    {
+        Vector3 direction = transform.position - lastPosition;
+        Vector3 movement = transform.InverseTransformDirection(direction);
+        lastPosition = transform.position;
+
+        _sideSlipAmount = movement.x;
     }
 
     void SetRotationPoint()
@@ -36,6 +59,8 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
+        float speed = _rigidBody.velocity.magnitude / 1000;
+
         float accelaretionInput = 0;
         if (Input.GetMouseButton(0))
         {
@@ -46,6 +71,6 @@ public class CarController : MonoBehaviour
             accelaretionInput = -1 * accelaretion * Time.fixedDeltaTime;
         }
         _rigidBody.AddRelativeForce(Vector3.forward * accelaretionInput);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed * Mathf.Clamp(speed, -1, 1) * Time.fixedDeltaTime);
     }
 }
