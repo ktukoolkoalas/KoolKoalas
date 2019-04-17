@@ -1370,9 +1370,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+
   m_LocalPosition: {x: 503, y: 207, z: -15}
   m_LocalScale: {x: 2.217136, y: 2.217136, z: 2.217136}
   m_Children: []
+
+  m_LocalPosition: {x: 503, y: 207, z: -15}
+  m_LocalScale: {x: 2.217136, y: 2.217136, z: 2.217136}
+  m_Children: []
+
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1565018852}
+  - {fileID: 868529222}
+  - {fileID: 5198797922727092668}
+  - {fileID: 929473749}
+  - {fileID: 932820770708860857}
+
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1408,6 +1423,7 @@ MonoBehaviour:
   RewardButton: {fileID: 1565018851}
 --- !u!1001 &538096519
 PrefabInstance:
+
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
@@ -1739,6 +1755,339 @@ PrefabInstance:
 --- !u!1 &740224238
 GameObject:
   m_ObjectHideFlags: 0
+
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4581528642220495577}
+    m_Modifications:
+    - target: {fileID: 1100711805531420, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_Name
+      value: Snowy Ground Clear (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.679997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_RootOrder
+      value: 121
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1514478585
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0e9332f8e7f61434bbdc1472414f1f2f,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+--- !u!1001 &599490884
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1540348236}
+    m_Modifications:
+    - target: {fileID: 1100711805531420, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_Name
+      value: Snowy Ground Clear (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -466.3243
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -401.53186
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 29.104519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 29.104519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 29.104519
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 247141439
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+--- !u!4 &599490885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381,
+    type: 3}
+  m_PrefabInstance: {fileID: 599490884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &626798130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4581528642220495577}
+    m_Modifications:
+    - target: {fileID: 1100711805531420, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_Name
+      value: Snowy Ground Clear (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_RootOrder
+      value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2033406013
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2ec52d797c478947929c14116299209,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+--- !u!1001 &667234399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4581528642220495577}
+    m_Modifications:
+    - target: {fileID: 1100711805531420, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_Name
+      value: Snowy Ground Clear (67)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.010002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_RootOrder
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1641518411
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2ec52d797c478947929c14116299209,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+--- !u!1001 &682179573
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4581528642220495577}
+    m_Modifications:
+    - target: {fileID: 1100711805531420, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_Name
+      value: Snowy Ground Clear (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_RootOrder
+      value: 107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1641518411
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2ec52d797c478947929c14116299209,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+--- !u!1001 &714316671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4581528642220495577}
+    m_Modifications:
+    - target: {fileID: 1100711805531420, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_Name
+      value: Snowy Ground Clear (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_RootOrder
+      value: 137
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317963719170430, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1641518411
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212720901977012924, guid: c3226049e641c411f808a1dfec68e381,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 63a935d844566e44ebb208a59c2aea96,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3226049e641c411f808a1dfec68e381, type: 3}
+--- !u!1 &740224238
+GameObject:
+  m_ObjectHideFlags: 0
+
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1950,16 +2299,70 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+
   m_Text: GET daily reward
 --- !u!222 &745447628
+
+  m_Text: GET daily reward
+--- !u!222 &745447628
+
+  m_Text: Go back to game
+--- !u!222 &1692431570
+
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 745447625}
   m_CullTransparentMesh: 0
 --- !u!1001 &786270577
+
+
+  m_GameObject: {fileID: 745447625}
+  m_CullTransparentMesh: 0
+--- !u!1001 &786270577
+
+  m_GameObject: {fileID: 1692431567}
+  m_CullTransparentMesh: 0
+--- !u!1 &1854696177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4581528642514384934, guid: 97fca9607e41a70479b4861bd5124529,
+    type: 3}
+  m_PrefabInstance: {fileID: 4581528642220495575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2045822479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1068808047440495563, guid: 3c27939070c8c4b47bcba3f8be610474,
+    type: 3}
+  m_PrefabInstance: {fileID: 1068808048525234933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e95c2a6140921244a5e89dce894cedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2109274157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7751875441869929517, guid: 3d349c03f19db6a4abb9695ab5067e9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 868529221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &932820770708860857 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 155128779496881484, guid: 3c27939070c8c4b47bcba3f8be610474,
+    type: 3}
+  m_PrefabInstance: {fileID: 1068808048525234933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1068808048525234933
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
