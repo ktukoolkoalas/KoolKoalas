@@ -9,8 +9,8 @@ public class ReserveController : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
-    public void GoToReserve()
+    public void GoToPou()
     {
-        SceneManager.LoadScene("ReserveScene");
+        SceneManager.LoadScene("TakingCareOfKoalas");
     }
 }
