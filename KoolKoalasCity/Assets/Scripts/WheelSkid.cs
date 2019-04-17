@@ -9,6 +9,7 @@ public class WheelSkid : MonoBehaviour
 
     SkidmarksController skidmarksController;
     CarController car;
+    ParticleSystem particleSystem;
 
     int lastSkidId = -1;
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class WheelSkid : MonoBehaviour
     {
         skidmarksController = FindObjectOfType<SkidmarksController>();
         car = GetComponentInParent<CarController>();
+        particleSystem = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -28,10 +30,19 @@ public class WheelSkid : MonoBehaviour
         {
 
             lastSkidId = skidmarksController.AddSkidMark(transform.position, transform.up, intensity * intensityModifier, lastSkidId);
+            if(particleSystem != null && !particleSystem.isPlaying)
+            {
+                particleSystem.Play();
+            }
         }
         else
         {
             lastSkidId = -1;
+
+            if (particleSystem != null && !particleSystem.isPlaying)
+            {
+                particleSystem.Stop();
+            }
         }
     }
 }
