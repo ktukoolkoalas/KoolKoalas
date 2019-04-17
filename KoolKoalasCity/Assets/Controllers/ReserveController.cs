@@ -36,4 +36,8 @@ public class ReserveController : MonoBehaviour
     {
         SceneManager.LoadScene("TakingCareOfKoalas");
     }
+    public void GoToReserve()
+    {
+        SceneManager.LoadScene("ReserveScene");
+    }
 }

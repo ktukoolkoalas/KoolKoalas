@@ -47,6 +47,18 @@ TagManager:
   - name: Background2
     uniqueID: 823173819
     locked: 0
+  - name: Forest 1st
+    uniqueID: 3058645551
+    locked: 0
+  - name: Forest 2nd
+    uniqueID: 1514478585
+    locked: 0
+  - name: Forest 3th
+    uniqueID: 2653448885
+    locked: 0
+  - name: Forest 4th
+    uniqueID: 2261561283
+    locked: 0
   - name: first
     uniqueID: 3397367851
     locked: 0
