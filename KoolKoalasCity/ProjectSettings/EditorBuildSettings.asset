@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScenes/TakingCareOfKoalas.unity
     guid: 6e4f26f489ee94a4d92b9bfdf573921c
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/RestaurantScene.unity
+    guid: 2086e25b9544cda42b7e44d276468fe9
   m_configObjects: {}
