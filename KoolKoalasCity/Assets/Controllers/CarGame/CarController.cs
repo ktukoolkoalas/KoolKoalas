@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class CarController : MonoBehaviour
 {
-    [SerializeField] protected float accelaretion = 8;
-    [SerializeField] protected float turnSpeed = 5;
+    [SerializeField] protected float accelaretion = 2200;
+    [SerializeField] protected float turnSpeed = 80;
 
     protected Quaternion targetRotation;
     protected Rigidbody _rigidBody;
@@ -16,11 +16,8 @@ public abstract class CarController : MonoBehaviour
     float _sideSlipAmount = 0;
 
     public GameObject Checkmarks;
-    GameObject NextCheckmark;
-    int NextCheckmarkIndex = 0;
-
-    public Material CurrentCheckmarkMaterial;
-    public Material InactiveCheckmarkMaterial;
+    protected GameObject NextCheckmark;
+    protected int NextCheckmarkIndex = 0;
 
     int LapCount = 1;
     int CurrLap = 0;
@@ -39,8 +36,6 @@ public abstract class CarController : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
         NextCheckmark = Checkmarks.transform.GetChild(0).gameObject;
-        NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
-        Debug.Log("First Checkmark is " + NextCheckmark.name);
     }
 
     void Update()
@@ -70,21 +65,9 @@ public abstract class CarController : MonoBehaviour
         }
     }
 
-    void GetNextCheckmark()
-    {
-        if (Checkmarks.transform.childCount <= ++NextCheckmarkIndex)
-        {
-            NextCheckmarkIndex = 0;
-            MarkLap();
-        }
-        NextCheckmark.GetComponent<MeshRenderer>().material = InactiveCheckmarkMaterial;
-        NextCheckmark = NextCheckmark.transform.parent.GetChild(NextCheckmarkIndex).gameObject;
-        NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
-        Debug.Log("Next Checkpoint is " + NextCheckmarkIndex + 1);
+    abstract protected void GetNextCheckmark();
 
-    }
-
-    void MarkLap()
+    protected void MarkLap()
     {
         CurrLap++;
         if(LapCount <= CurrLap)

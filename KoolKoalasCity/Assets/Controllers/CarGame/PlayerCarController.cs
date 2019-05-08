@@ -7,6 +7,16 @@ using UnityEngine.SceneManagement;
 public class PlayerCarController : CarController
 {
 
+    public Material CurrentCheckmarkMaterial;
+    public Material InactiveCheckmarkMaterial;
+
+    void Start()
+    {
+        _rigidBody = GetComponent<Rigidbody>();
+        NextCheckmark = Checkmarks.transform.GetChild(0).gameObject;
+        NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
+        Debug.Log("First Checkmark is " + NextCheckmark.name);
+    }
 
     void FixedUpdate()
     {
@@ -44,5 +54,17 @@ public class PlayerCarController : CarController
         SceneManager.LoadScene("GameScene");
     }
 
+    protected override void GetNextCheckmark()
+    {
+        if (Checkmarks.transform.childCount <= ++NextCheckmarkIndex)
+        {
+            NextCheckmarkIndex = 0;
+            MarkLap();
+        }
+        NextCheckmark.GetComponent<MeshRenderer>().material = InactiveCheckmarkMaterial;
+        NextCheckmark = NextCheckmark.transform.parent.GetChild(NextCheckmarkIndex).gameObject;
+        NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
+        Debug.Log("Next Checkpoint is " + NextCheckmarkIndex + 1);
 
+    }
 }
