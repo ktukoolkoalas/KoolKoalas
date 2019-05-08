@@ -8565,7 +8565,7 @@ GameObject:
   - component: {fileID: 1335614226}
   - component: {fileID: 1335614225}
   m_Layer: 0
-  m_Name: 'GameLinkCube '
+  m_Name: GameLinkCube
   m_TagString: GameLinkHouse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16366,6 +16366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: City
       objectReference: {fileID: 0}
+    - target: {fileID: 4580438904101695178, guid: 97fca9607e41a70479b4861bd5124529,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4581528642514384933, guid: 97fca9607e41a70479b4861bd5124529,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17020,11 +17025,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 201.91399
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580438904101695178, guid: 97fca9607e41a70479b4861bd5124529,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1536087464808278005, guid: 97fca9607e41a70479b4861bd5124529,
         type: 3}
@@ -19634,6 +19634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077462099069853463, guid: 97fca9607e41a70479b4861bd5124529,
+        type: 3}
+      propertyPath: m_Name
+      value: CarGameCube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fca9607e41a70479b4861bd5124529, type: 3}

@@ -49,6 +49,10 @@ public class GameController : MonoBehaviour
                         {
                             SceneManager.LoadScene("RecyclingGame");
                         }
+                        else if (hit.transform.name == "CarGameCube")
+                        {
+                            SceneManager.LoadScene("CarGame");
+                        }
                         else
                         {
                             SceneManager.LoadScene("GameScene");
