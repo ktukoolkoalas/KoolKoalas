@@ -26,7 +26,7 @@ public class WheelSkid : MonoBehaviour
         float intensity = car.SideSlipAmount;
         if(intensity < 0) { intensity = -intensity; }
 
-        if (intensity > 0.1f)
+        if (intensity > 0.2f)
         {
 
             lastSkidId = skidmarksController.AddSkidMark(transform.position, transform.up, intensity * intensityModifier, lastSkidId);
@@ -39,10 +39,11 @@ public class WheelSkid : MonoBehaviour
         {
             lastSkidId = -1;
 
-            if (particleSystem != null && !particleSystem.isPlaying)
+            if (particleSystem != null && particleSystem.isPlaying)
             {
                 particleSystem.Stop();
             }
         }
+
     }
 }
