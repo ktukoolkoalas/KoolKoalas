@@ -35,7 +35,7 @@ public class RestaurantController : MonoBehaviour
     public Button juice;
     public Button muffin;
     public Button popcorn;
-    private int level;
+    //private int level;
     public GameObject instructions;
     public GameObject timeover;
     public Text totalScore;
@@ -104,13 +104,15 @@ public class RestaurantController : MonoBehaviour
                 DisableButtons();
                 timeover.SetActive(true);
                 totalScore.text = _score.ToString();
+                if (_score > 3)
+                    GlobalData.MemoryGameLevel++;
             }
             else timeText.text = currCountdownValue.ToString();
         }
     }
     private void GetLevel()
     {
-        switch (level)
+        switch (GlobalData.MemoryGameLevel)
         {
             case 2:
                 orderCount = 4;
