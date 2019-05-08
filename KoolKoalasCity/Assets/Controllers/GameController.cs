@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
                         if(hit.transform.name == "MemoryGameCube")
                         {
                             Debug.Log("Going to Memory Game");
-                            SceneManager.LoadScene("MemoryGame");
+                            SceneManager.LoadScene("RestaurantScene");
                         }
                         else if (hit.transform.name == "TestCube")
                         {
@@ -48,6 +48,10 @@ public class GameController : MonoBehaviour
                         else if (hit.transform.name == "RecycleGameCube")
                         {
                             SceneManager.LoadScene("RecyclingGame");
+                        }
+                        else if (hit.transform.name == "CarGameCube")
+                        {
+                            SceneManager.LoadScene("CarGame");
                         }
                         else
                         {
