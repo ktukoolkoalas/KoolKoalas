@@ -8,7 +8,10 @@ public class RestaurantController : MonoBehaviour
 {
     [SerializeField] private Sprite[] images;
     private int _score = 0;
-    [SerializeField] private TextMesh timeLabel;
+    public GameObject timeLabel;
+    public Text timeText;
+    public GameObject scoreLabel;
+    public Text scoreText;
     private int orderCount;
     private int clickCount = 0;
     private int[] answer;
@@ -21,15 +24,30 @@ public class RestaurantController : MonoBehaviour
     public GameObject correct;
     public GameObject wrong;
     public GameObject orderAlert;
+    public Button hotdog;
+    public Button donut;
+    public Button soda;
+    public Button icecream;
+    public Button cupcake;
+    public Button burger;
+    public Button coffee;
+    public Button fries;
+    public Button juice;
+    public Button muffin;
+    public Button popcorn;
+    private int level;
+    public GameObject instructions;
+    public GameObject timeover;
+    public Text totalScore;
     // Start is called before the first frame update
     void Start()
     {
-        timeLabel.text = "Time left: 32";
-        StartCoroutine(Counter());
+        DisableButtons();
         GetLevel();
-        orders = Generate(orderCount);
-        ChangeOrderSprites();
-        StartCoroutine(ShowOrder());
+        instructions.SetActive(true);
+        timeText.text = "32";
+        scoreText.text = "0";
+        
     }
 
     // Update is called once per frame
@@ -39,6 +57,7 @@ public class RestaurantController : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
+        scoreText.text =  _score.ToString();
         if (orderAlert.activeInHierarchy == false)
         {
             if (clickCount == orderCount)
@@ -58,6 +77,21 @@ public class RestaurantController : MonoBehaviour
             }
         }
     }
+    public void BackToTown()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+    public void PlayGame()
+    {
+        instructions.SetActive(false);
+        timeLabel.SetActive(true);
+        scoreLabel.SetActive(true);
+        StartCoroutine(Counter());
+        EnableButtons();
+        orders = Generate(orderCount);
+        ChangeOrderSprites();
+        StartCoroutine(ShowOrder());
+    }
     private IEnumerator Counter()
     {
         int currCountdownValue = 32;
@@ -67,14 +101,16 @@ public class RestaurantController : MonoBehaviour
             currCountdownValue--;
             if (currCountdownValue == 0)
             {
-                SceneManager.LoadScene("MainScene");
+                DisableButtons();
+                timeover.SetActive(true);
+                totalScore.text = _score.ToString();
             }
-            else timeLabel.text = "Time left: " + currCountdownValue.ToString();
+            else timeText.text = currCountdownValue.ToString();
         }
     }
     private void GetLevel()
     {
-        switch (GlobalData.MemoryGameLevel)
+        switch (level)
         {
             case 2:
                 orderCount = 4;
@@ -108,11 +144,31 @@ public class RestaurantController : MonoBehaviour
     }
     private void DisableButtons()
     {
-
+        hotdog.interactable = false;
+        donut.interactable = false;
+        soda.interactable = false;
+        icecream.interactable = false;
+        cupcake.interactable = false;
+        burger.interactable = false;
+        coffee.interactable = false;
+        fries.interactable = false;
+        juice.interactable = false;
+        muffin.interactable = false;
+        popcorn.interactable = false;
     }
     private void EnableButtons()
     {
-
+        hotdog.interactable = true;
+        donut.interactable = true;
+        soda.interactable = true;
+        icecream.interactable = true;
+        cupcake.interactable = true;
+        burger.interactable = true;
+        coffee.interactable = true;
+        fries.interactable = true;
+        juice.interactable = true;
+        muffin.interactable = true;
+        popcorn.interactable = true;
     }
     public void Hotdog() { answer[clickCount++] = 0; }
     public void Donut() { answer[clickCount++] = 1; }
@@ -148,25 +204,30 @@ public class RestaurantController : MonoBehaviour
             if (answer[i] != orders[i])
                 return false;
         }
+        _score++;
         return true;
     }
     private IEnumerator ShowCorrect()
     {
+        DisableButtons();
         correct.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         correct.SetActive(false);
     }
     private IEnumerator ShowWrong()
     {
+        DisableButtons();
         wrong.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         wrong.SetActive(false);
     }
     private IEnumerator ShowOrder()
     {
+        yield return new WaitForSeconds(0.5f);
         orderAlert.SetActive(true);
         yield return new WaitForSeconds(3.0f);
         orderAlert.SetActive(false);
+        EnableButtons();
     }
     public void ChangeOrderSprites()
     {
