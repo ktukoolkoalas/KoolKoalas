@@ -39,6 +39,7 @@ public class RestaurantController : MonoBehaviour
     public GameObject instructions;
     public GameObject timeover;
     public Text totalScore;
+    public Text countdownText;
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +109,17 @@ public class RestaurantController : MonoBehaviour
                     GlobalData.MemoryGameLevel++;
             }
             else timeText.text = currCountdownValue.ToString();
+        }
+    }
+    private IEnumerator Countdown()
+    {
+        int currCountdownValue = 3;
+        countdownText.text = currCountdownValue.ToString();
+        while (currCountdownValue > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
+            countdownText.text = currCountdownValue.ToString();
         }
     }
     private void GetLevel()
@@ -227,6 +239,7 @@ public class RestaurantController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         orderAlert.SetActive(true);
+        StartCoroutine(Countdown());
         yield return new WaitForSeconds(3.0f);
         orderAlert.SetActive(false);
         EnableButtons();
