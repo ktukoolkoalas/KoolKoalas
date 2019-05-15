@@ -114,7 +114,7 @@ public class KoalaCareController : MonoBehaviour
 
             dragging = false;
         }
-        if (period > 1.1f)
+        if (period > 1.2f)
         {
             updateStatus();
             period = 0;
