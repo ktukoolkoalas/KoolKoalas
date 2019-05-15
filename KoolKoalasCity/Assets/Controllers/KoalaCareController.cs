@@ -114,7 +114,7 @@ public class KoalaCareController : MonoBehaviour
 
             dragging = false;
         }
-        if (period > 2.1f)
+        if (period > 1.1f)
         {
             updateStatus();
             period = 0;
@@ -304,14 +304,14 @@ public class KoalaCareController : MonoBehaviour
     IEnumerator LookHappy()
     {
         action = true;
-        happyeyes.SetActive(true);
+        //happyeyes.SetActive(true);
         regeyes.SetActive(false);
         sad.SetActive(false);
         happy.SetActive(true);
         yield return new WaitForSeconds(0.75f);
-        happyeyes.SetActive(false);
-        regeyes.SetActive(true);
         action = false;
+        //happyeyes.SetActive(false);
+        regeyes.SetActive(true);
     }
     IEnumerator EmitHearts()
     {
