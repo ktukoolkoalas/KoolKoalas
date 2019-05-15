@@ -19,7 +19,7 @@ public class KoalaCareController : MonoBehaviour
     public Slider hygieneSlider;
 
     private bool _serverTime;
-
+    private bool action = false;
     public ParticleSystem hearts;
     public ParticleSystem food;
     public ParticleSystem bubbles;
@@ -31,10 +31,13 @@ public class KoalaCareController : MonoBehaviour
     public GameObject foodAlert;
     public GameObject playAlert;
     public GameObject cleanAlert;
+    public GameObject coinsAlert;
+    public Text coins;
     public Button foodButton;
     public Button playButton;
     public Button cleanButton;
-
+    private bool firstUpdate = true;
+    private float period = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +48,13 @@ public class KoalaCareController : MonoBehaviour
         foodSlider.interactable = false;
         happinessSlider.interactable = false;
         updateStatus();
-        
+        //  coinsAlert.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GlobalData.food < 39 || GlobalData.happy < 39 || GlobalData.clean < 39)
+        if((GlobalData.food < 21 || GlobalData.happy < 21 || GlobalData.clean < 21) && !action)
         {
             sad.SetActive(true);
             happy.SetActive(false);
@@ -61,7 +64,6 @@ public class KoalaCareController : MonoBehaviour
             sad.SetActive(false);
             happy.SetActive(true);
         }
-        
         //--------------------------------------------------
 
         if (Input.GetMouseButtonDown(0))
@@ -112,6 +114,13 @@ public class KoalaCareController : MonoBehaviour
 
             dragging = false;
         }
+        if (period > 2.1f)
+        {
+            updateStatus();
+            period = 0;
+        }
+        period += UnityEngine.Time.deltaTime;
+
     }
 
     void updateStatus()
@@ -149,8 +158,10 @@ public class KoalaCareController : MonoBehaviour
                 t = i;
             }
         }
-        if(lowest > 39)
+        Debug.Log(lowest);
+        if(lowest > 21)
         {
+            Debug.Log("t=" + t.ToString());
             int timeElapsed;
             switch(t)
             {
@@ -168,28 +179,38 @@ public class KoalaCareController : MonoBehaviour
                     timeElapsed = 0;
                     break;
             }
-            int koins = lowest - 39;
+            int koins = lowest - 21;
             Debug.Log(koins);
             Debug.Log(timeElapsed);
             if (timeElapsed < koins)
             {
-                GlobalData.KoinChange = timeElapsed;
+                GlobalData.KoinChange += timeElapsed;
             }
-            else GlobalData.KoinChange = koins;
-            Debug.Log(GlobalData.KoinChange);
+            else GlobalData.KoinChange += koins;
+            if(firstUpdate) 
+              coinsAlert.SetActive(true);
+            coins.text = GlobalData.KoinChange + " coins received";
+            //Debug.Log(GlobalData.KoinChange);
         }
         GlobalData.food -= (DateTime.Now - GlobalData.lastFed).Seconds;
         foodSlider.value = GlobalData.food;
+        GlobalData.lastFed = DateTime.Now;
+
         GlobalData.happy -= (DateTime.Now - GlobalData.lastPlayed).Seconds;
         happinessSlider.value = GlobalData.happy;
+        GlobalData.lastPlayed = DateTime.Now;
+
         GlobalData.clean -= (DateTime.Now - GlobalData.lastCleaned).Seconds;
         hygieneSlider.value = GlobalData.clean;
+        GlobalData.lastCleaned = DateTime.Now;
+
         if (GlobalData.food < 0)
             GlobalData.food = 0;
         if (GlobalData.happy < 0)
             GlobalData.happy = 0;
         if (GlobalData.clean < 0)
             GlobalData.clean = 0;
+        firstUpdate = false;
     }
     public void Feed()
     {
@@ -202,9 +223,9 @@ public class KoalaCareController : MonoBehaviour
             else GlobalData.food = 100;
             StartCoroutine(FillBar(foodSlider, 20));
             StartCoroutine(EmitLeaves());
-            //StartCoroutine(LookHappy());
+            StartCoroutine(LookHappy());
             GlobalData.lastFed = DateTime.Now;
-            Debug.Log(GlobalData.food);
+            //Debug.Log(GlobalData.food);
 
         }
         else
@@ -226,9 +247,9 @@ public class KoalaCareController : MonoBehaviour
             else GlobalData.clean = 100;
             StartCoroutine(FillBar(hygieneSlider, 20));
             StartCoroutine(EmitBubbles());
-            //StartCoroutine(LookHappy());
+            StartCoroutine(LookHappy());
             GlobalData.lastCleaned = DateTime.Now;
-            Debug.Log(GlobalData.clean);
+            //Debug.Log(GlobalData.clean);
 
 
         }
@@ -251,9 +272,9 @@ public class KoalaCareController : MonoBehaviour
             else GlobalData.happy = 100;
             StartCoroutine(FillBar(happinessSlider, 20));
             StartCoroutine(EmitHearts());
-            //StartCoroutine(LookHappy());
+            StartCoroutine(LookHappy());
             GlobalData.lastPlayed = DateTime.Now;
-            Debug.Log(GlobalData.happy);
+            //Debug.Log(GlobalData.happy);
         }
         else 
         {
@@ -282,15 +303,15 @@ public class KoalaCareController : MonoBehaviour
     }
     IEnumerator LookHappy()
     {
+        action = true;
         happyeyes.SetActive(true);
         regeyes.SetActive(false);
         sad.SetActive(false);
         happy.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.75f);
         happyeyes.SetActive(false);
         regeyes.SetActive(true);
-        sad.SetActive(true);
-        happy.SetActive(false);
+        action = false;
     }
     IEnumerator EmitHearts()
     {
@@ -313,6 +334,7 @@ public class KoalaCareController : MonoBehaviour
         foodAlert.SetActive(false);
         playAlert.SetActive(false);
         cleanAlert.SetActive(false);
+        coinsAlert.SetActive(false);
         playButton.interactable = true;
         foodButton.interactable = true;
         cleanButton.interactable = true;
