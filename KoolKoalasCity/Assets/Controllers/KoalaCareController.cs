@@ -163,6 +163,7 @@ public class KoalaCareController : MonoBehaviour
                 case 2:
                     timeElapsed = (DateTime.Now - GlobalData.lastCleaned).Seconds;
                     break;
+                case -1:
                 default:
                     timeElapsed = 0;
                     break;
@@ -175,6 +176,7 @@ public class KoalaCareController : MonoBehaviour
                 GlobalData.KoinChange = timeElapsed;
             }
             else GlobalData.KoinChange = koins;
+            Debug.Log(GlobalData.KoinChange);
         }
         GlobalData.food -= (DateTime.Now - GlobalData.lastFed).Seconds;
         foodSlider.value = GlobalData.food;
