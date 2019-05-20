@@ -31,8 +31,9 @@ public class PlayerCarController : CarController
         {
             accelaretionInput = -1 * accelaretion * Time.fixedDeltaTime;
         }
-        _rigidBody.AddRelativeForce(Vector3.forward * accelaretionInput);
+        _rigidBody.AddRelativeForce(Vector3.forward * accelaretionInput * trackMultiplier * MovementEnabled);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed * Mathf.Clamp(speed, -1, 1) * Time.fixedDeltaTime);
+        realSpeed = _rigidBody.velocity.magnitude;
     }
 
     protected override void SetRotationPoint()
@@ -66,5 +67,27 @@ public class PlayerCarController : CarController
         NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
         Debug.Log("Next Checkpoint is " + NextCheckmarkIndex + 1);
 
+    }
+
+    public override int GetRacePosition()
+    {
+        int position = 1;
+        for(int i = 0; i < transform.parent.childCount; i++)
+        {
+            CarController car = transform.parent.GetChild(i).GetComponent<CarController>();
+            if(car.CurrLap > CurrLap)
+            {
+                position++;
+            }
+            else if(car.CurrLap == CurrLap && car.NextCheckmarkIndex > NextCheckmarkIndex)
+            {
+                position++;
+            }
+            else if(car.CurrLap == CurrLap && car.NextCheckmarkIndex == NextCheckmarkIndex && car.GetDistanceToCheckmark() < GetDistanceToCheckmark())
+            {
+                position++;
+            }
+        }
+        return position;
     }
 }
