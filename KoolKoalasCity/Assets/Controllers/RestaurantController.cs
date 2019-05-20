@@ -38,8 +38,13 @@ public class RestaurantController : MonoBehaviour
     //private int level;
     public GameObject instructions;
     public GameObject timeover;
+    public GameObject choices;
+    public Image choice1;
+    public Image choice2;
     public Text totalScore;
     public Text countdownText;
+    private Color transparent = new Color(0, 0, 0, 0);
+    private Color visible = new Color(255, 255, 255, 255);
     // Start is called before the first frame update
     void Start()
     {
@@ -71,11 +76,17 @@ public class RestaurantController : MonoBehaviour
                     StartCoroutine(ShowCorrect());
                 }
                 else StartCoroutine(ShowWrong());
+                choice1.color = transparent;
+                choice2.color = transparent;
                 orders = Generate(orderCount);
                 ChangeOrderSprites();
                 StartCoroutine(ShowOrder());
                 clickCount = 0;
             }
+            if (clickCount >= 1)
+                choice1.color = visible;
+            if (clickCount == 2)
+                choice2.color = visible;
         }
     }
     public void BackToTown()
@@ -91,6 +102,9 @@ public class RestaurantController : MonoBehaviour
         EnableButtons();
         orders = Generate(orderCount);
         ChangeOrderSprites();
+        choices.SetActive(true);
+        choice1.color = transparent;
+        choice2.color = transparent;
         StartCoroutine(ShowOrder());
     }
     private IEnumerator Counter()
@@ -184,17 +198,72 @@ public class RestaurantController : MonoBehaviour
         muffin.interactable = true;
         popcorn.interactable = true;
     }
-    public void Hotdog() { answer[clickCount++] = 0; }
-    public void Donut() { answer[clickCount++] = 1; }
-    public void Soda() { answer[clickCount++] = 2; }
-    public void IceCream() { answer[clickCount++] = 3; }
-    public void Cupcake() { answer[clickCount++] = 4; }
-    public void Burger() { answer[clickCount++] = 5; }
-    public void Coffee() { answer[clickCount++] = 6; }
-    public void Fries() { answer[clickCount++] = 7; }
-    public void Juice() { answer[clickCount++] = 8; }
-    public void Muffin() { answer[clickCount++] = 9; }
-    public void Popcorn() { answer[clickCount++] = 10; }
+    public void Hotdog() { answer[clickCount++] = 0;
+        if (clickCount == 1)
+            choice1.sprite = images[0];
+        if (clickCount == 2)
+            choice2.sprite = images[0];
+    }
+    public void Donut() { answer[clickCount++] = 1;
+        if (clickCount == 1)
+            choice1.sprite = images[1];
+        if (clickCount == 2)
+            choice2.sprite = images[1];
+    }
+    public void Soda() { answer[clickCount++] = 2;
+        if (clickCount == 1)
+            choice1.sprite = images[2];
+        if (clickCount == 2)
+            choice2.sprite = images[2];
+    }
+    public void IceCream() { answer[clickCount++] = 3;
+        if (clickCount == 1)
+            choice1.sprite = images[3];
+        if (clickCount == 2)
+            choice2.sprite = images[3];
+    }
+    public void Cupcake() { answer[clickCount++] = 4;
+        if (clickCount == 1)
+            choice1.sprite = images[4];
+        if (clickCount == 2)
+            choice2.sprite = images[4];
+    }
+    public void Burger() { answer[clickCount++] = 5;
+        if (clickCount == 1)
+            choice1.sprite = images[5];
+        if (clickCount == 2)
+            choice2.sprite = images[5];
+    }
+    public void Coffee() { answer[clickCount++] = 6;
+        if (clickCount == 1)
+            choice1.sprite = images[6];
+        if (clickCount == 2)
+            choice2.sprite = images[6];
+    }
+    public void Fries() { answer[clickCount++] = 7;
+        if (clickCount == 1)
+            choice1.sprite = images[7];
+        if (clickCount == 2)
+            choice2.sprite = images[7];
+    }
+    public void Juice() { answer[clickCount++] = 8;
+        if (clickCount == 1)
+            choice1.sprite = images[8];
+        if (clickCount == 2)
+            choice2.sprite = images[8];
+    }
+    public void Muffin() { answer[clickCount++] = 9;
+        if (clickCount == 1)
+            choice1.sprite = images[9];
+        if (clickCount == 2)
+            choice2.sprite = images[9];
+    }
+    public void Popcorn() { answer[clickCount++] = 10;
+        if (clickCount == 1)
+            choice1.sprite = images[10];
+        if (clickCount == 2)
+            choice2.sprite = images[10];
+    }
     private int[] Sort(int[] numbers)
     {
         for(int i = 0; i < numbers.Length; i++)
@@ -238,10 +307,12 @@ public class RestaurantController : MonoBehaviour
     private IEnumerator ShowOrder()
     {
         yield return new WaitForSeconds(0.5f);
+        choices.SetActive(false);
         orderAlert.SetActive(true);
         StartCoroutine(Countdown());
         yield return new WaitForSeconds(3.0f);
         orderAlert.SetActive(false);
+        choices.SetActive(true);
         EnableButtons();
     }
     public void ChangeOrderSprites()

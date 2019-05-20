@@ -26,4 +26,12 @@ public static class GlobalData
     public static int RecyclingGameScore = 0;
     public static int RecyclingGameLifeCount = 3;
 
+    public static int food = 0;
+    public static int clean = 0;
+    public static int happy = 0;
+
+    public static DateTime lastFed = new DateTime();
+    public static DateTime lastCleaned = new DateTime();
+    public static DateTime lastPlayed = new DateTime();
+
 }

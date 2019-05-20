@@ -14,6 +14,8 @@ public class BackgroundController : MonoBehaviour
     
     public Sprite DayBackground;
     public Sprite NightBackground;
+    public Text koins;
+    public Text lives;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +34,15 @@ public class BackgroundController : MonoBehaviour
             if (IsDay)
             {
                 this.GetComponent<SpriteRenderer>().sprite = NightBackground;
+                koins.color = new Color(255, 255, 255);
+                lives.color = new Color(255, 255, 255);
                 IsDay = false;
             }
             else
             {
                 this.GetComponent<SpriteRenderer>().sprite = DayBackground;
+                koins.color = new Color(0, 0, 0);
+                lives.color = new Color(0, 0, 0);
                 IsDay = true;
             }
             
