@@ -75,7 +75,12 @@ public class PlayerCarController : CarController
 
     protected override void GameOver()
     {
-        SceneManager.LoadScene("GameScene");
+        //SceneManager.LoadScene("GameScene");
+        for(int i = 0; i < transform.parent.childCount; i++)
+        {
+            transform.parent.GetChild(i).GetComponent<CarController>().MovementEnabled = 0;
+            Camera.main.gameObject.GetComponent<CarCameraController>().ShowScore();
+        }
     }
 
     protected override void GetNextCheckmark()

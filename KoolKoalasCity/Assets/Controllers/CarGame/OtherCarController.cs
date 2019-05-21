@@ -6,7 +6,7 @@ public class OtherCarController : CarController
 {
     protected override void GameOver()
     {
-
+        //Nothing, unless you want to show who won finnished
     }
 
     void Start()
@@ -17,6 +17,9 @@ public class OtherCarController : CarController
         audio = gameObject.AddComponent<AudioSource>();
         audio.playOnAwake = false;
         audio.clip = SoundLow;
+        audio.volume = 0.1f;
+        audio.maxDistance = 100;
+        audio.spatialBlend = 0.8f;
     }
 
     void FixedUpdate()

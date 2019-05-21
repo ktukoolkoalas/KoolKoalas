@@ -17,7 +17,10 @@ public class CarCameraController : MonoBehaviour
     [SerializeField] Text PositionText;
     [SerializeField] Text CountDownText;
     [SerializeField] Text LapText;
+    [SerializeField] GameObject ScorePanel;
 
+    [SerializeField] int ScaleParts = 50;
+    [SerializeField] float SizeMultiplier = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -61,5 +64,57 @@ public class CarCameraController : MonoBehaviour
         {
             Parent.GetChild(j).GetComponent<CarController>().MovementEnabled = 1;
         }
+    }
+
+    public void ShowScore()
+    {
+        StartCoroutine(ScoreScreen());
+    }
+
+    IEnumerator ScoreScreen()
+    {
+        ScorePanel.SetActive(true);
+        Text text = ScorePanel.transform.GetChild(0).Find("ScorePositionText").GetComponent<Text>();
+        int racePosition = observable.GetComponent<CarController>().GetRacePosition();
+        string pos = "";
+        int koalas = 0;
+        switch (racePosition)
+        {
+            case 1:
+                pos = "1st";
+                koalas = 3;
+                break;
+            case 2:
+                pos = "2nd";
+                koalas = 2;
+                break;
+            case 3:
+                pos = "3rd";
+                koalas = 2;
+                break;
+            default:
+                pos = racePosition + "th";
+                koalas = 1;
+                break;
+        }
+        text.text = "You came in " + pos + "!";
+        yield return new WaitForSeconds(1);
+        
+        for(int i = 1; i <= koalas; i++)
+        {
+            Transform koala = ScorePanel.transform.GetChild(0).Find("Koala" + i + "Image");
+            koala.gameObject.SetActive(true);
+            float lowerX = koala.localScale.x * SizeMultiplier / ScaleParts;
+            float lowerY = koala.localScale.y * SizeMultiplier / ScaleParts;
+            koala.localScale.Set(koala.localScale.x * (SizeMultiplier + 1), koala.localScale.y * (SizeMultiplier + 1), koala.localScale.z);
+            for (int j = 0; j < ScaleParts; j++)
+            {
+                koala.localScale.Set(koala.localScale.x - lowerX, koala.localScale.y - lowerY, koala.localScale.z);
+                yield return null;
+            }
+        }
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainScene");
+
     }
 }
