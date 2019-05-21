@@ -6,7 +6,7 @@ using UnityEngine;
 public static class GlobalData
 {
     public static string MainScene = "";
-    public static bool NeedToUpdateProgress = false;
+    //public static bool NeedToUpdateProgress = false;
     public static int KoinChange = 0;
     public static int KoinCounter = 30; //used only by KoinController
     public static int PopUpCounter = 2;

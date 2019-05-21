@@ -15,9 +15,8 @@ public class ProgressBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GlobalData.NeedToUpdateProgress)
+        if (GlobalData.ProgressDone > 0)
         {
-            GlobalData.NeedToUpdateProgress = false;
             FillProgressBar(GlobalData.ProgressDone);
             GlobalData.ProgressDone = 0;
         }
