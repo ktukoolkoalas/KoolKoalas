@@ -3,7 +3,16 @@ guid: e23b43cf8e97ef64984efccaa96d4985
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - plastic: {instanceID: 0}
+  - glass: {instanceID: 0}
+  - paper: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - livesLeftText: {instanceID: 0}
+  - greenParticles: {fileID: 2368818464391089656, guid: 8e735baa622c3da48813cf8dcef8e901,
+      type: 3}
+  - redParticles: {fileID: 785516414696337057, guid: c02d448dacfeed041815371f18b157c1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -13,10 +13,17 @@ public class FallingTrashScript : MonoBehaviour
     public Sprite paper;
     public Text scoreText;
     public Text livesLeftText;
+    public Transform greenParticles;
+    public Transform redParticles;
+   // public AudioSource collisionSound;
+   // public ParticleSystem particleEffect;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        greenParticles.GetComponent<ParticleSystem>().enableEmission = false;
+        redParticles.GetComponent<ParticleSystem>().enableEmission = false;
         GlobalData.RecyclingGameLifeCount = 3;
         GlobalData.RecyclingGameScore = 0;
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
@@ -75,14 +82,17 @@ public class FallingTrashScript : MonoBehaviour
     {
         if (GlobalData.RecyclingGameLifeCount > 0)
         {
+            //collisionSound.Play();
             if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
                 GlobalData.RecyclingGameScore++;
+                greenParticles.GetComponent<ParticleSystem>().enableEmission = true;
                 MoveToTop();
             }
             else if (collision.gameObject.name == "PaperBin" || collision.gameObject.name == "PlasticBin" || collision.gameObject.name == "GlassBin" || collision.gameObject.name == "ground")
             {
                 GlobalData.RecyclingGameLifeCount--;
+                redParticles.GetComponent<ParticleSystem>().enableEmission = true;
                 MoveToTop();
             }
             
