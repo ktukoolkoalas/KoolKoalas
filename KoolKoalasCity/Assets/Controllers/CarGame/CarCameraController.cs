@@ -114,6 +114,11 @@ public class CarCameraController : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(3);
+        if(GlobalData.RaceCompleted < koalas)
+        {
+            GlobalData.ProgressDone = koalas - GlobalData.RaceCompleted;
+            GlobalData.RaceCompleted = koalas;
+        }
         SceneManager.LoadScene("MainScene");
 
     }

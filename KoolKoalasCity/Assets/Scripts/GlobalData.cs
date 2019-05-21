@@ -14,6 +14,7 @@ public static class GlobalData
     public static int HeartChange = 0;
 
     public static float ProgressBarValue = 0;
+    public static int ProgressDone = 0;
 
     public static bool TrashGameDropping = false;
     public static int MemoryGameLevel = 1;
@@ -33,5 +34,7 @@ public static class GlobalData
     public static DateTime lastFed = new DateTime();
     public static DateTime lastCleaned = new DateTime();
     public static DateTime lastPlayed = new DateTime();
+
+    public static int RaceCompleted = 0;
 
 }

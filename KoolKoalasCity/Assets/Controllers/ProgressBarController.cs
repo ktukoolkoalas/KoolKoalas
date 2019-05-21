@@ -18,7 +18,8 @@ public class ProgressBarController : MonoBehaviour
         if (GlobalData.NeedToUpdateProgress)
         {
             GlobalData.NeedToUpdateProgress = false;
-            FillProgressBar(25);
+            FillProgressBar(GlobalData.ProgressDone);
+            GlobalData.ProgressDone = 0;
         }
     }
 
@@ -27,7 +28,7 @@ public class ProgressBarController : MonoBehaviour
 
     public void FillProgressBar(int procentage)
     {
-        StartCoroutine(FillBar(procentage));
+        StartCoroutine(FillBar(100/9 * procentage));
     }
     IEnumerator FillBar(int procentage)
     {
