@@ -18,6 +18,10 @@ public class KoalaCareController : MonoBehaviour
     public Slider happinessSlider;
     public Slider hygieneSlider;
 
+    public AudioSource foodSound;
+    public AudioSource cleanSound;
+    public AudioSource playSound;
+
     private bool _serverTime;
     private bool action = false;
     public ParticleSystem hearts;
@@ -226,6 +230,7 @@ public class KoalaCareController : MonoBehaviour
             StartCoroutine(LookHappy());
             GlobalData.lastFed = DateTime.Now;
             //Debug.Log(GlobalData.food);
+            foodSound.Play();
 
         }
         else
@@ -250,8 +255,8 @@ public class KoalaCareController : MonoBehaviour
             StartCoroutine(LookHappy());
             GlobalData.lastCleaned = DateTime.Now;
             //Debug.Log(GlobalData.clean);
-
-
+            cleanSound.Play();
+            
         }
         else
         {
@@ -275,6 +280,7 @@ public class KoalaCareController : MonoBehaviour
             StartCoroutine(LookHappy());
             GlobalData.lastPlayed = DateTime.Now;
             //Debug.Log(GlobalData.happy);
+            playSound.Play();
         }
         else 
         {
