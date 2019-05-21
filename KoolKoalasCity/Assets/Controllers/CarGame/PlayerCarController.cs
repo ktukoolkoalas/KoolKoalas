@@ -10,6 +10,8 @@ public class PlayerCarController : CarController
     public Material CurrentCheckmarkMaterial;
     public Material InactiveCheckmarkMaterial;
 
+    bool LapCheck;
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
@@ -57,15 +59,20 @@ public class PlayerCarController : CarController
 
     protected override void GetNextCheckmark()
     {
+        if (LapCheck)
+        {
+            MarkLap();
+        }
         if (Checkmarks.transform.childCount <= ++NextCheckmarkIndex)
         {
             NextCheckmarkIndex = 0;
-            MarkLap();
+            LapCheck = true;
         }
         NextCheckmark.GetComponent<MeshRenderer>().material = InactiveCheckmarkMaterial;
         NextCheckmark = NextCheckmark.transform.parent.GetChild(NextCheckmarkIndex).gameObject;
         NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
         Debug.Log("Next Checkpoint is " + NextCheckmarkIndex + 1);
+        GetComponent<TargetIndicatorController>().Target = NextCheckmark;
 
     }
 

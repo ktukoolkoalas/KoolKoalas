@@ -43,6 +43,7 @@ public abstract class CarController : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
         NextCheckmark = Checkmarks.transform.GetChild(0).gameObject;
+        GetComponent<TargetIndicatorController>().Target = NextCheckmark;
     }
 
     void Update()
