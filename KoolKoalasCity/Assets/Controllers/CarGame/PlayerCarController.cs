@@ -18,6 +18,11 @@ public class PlayerCarController : CarController
         NextCheckmark = Checkmarks.transform.GetChild(0).gameObject;
         NextCheckmark.GetComponent<MeshRenderer>().material = CurrentCheckmarkMaterial;
         Debug.Log("First Checkmark is " + NextCheckmark.name);
+        GetComponent<TargetIndicatorController>().Target = NextCheckmark;
+        audio = gameObject.AddComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.clip = SoundLow;
+        audio.volume = 0.5f;
     }
 
     void FixedUpdate()
@@ -33,9 +38,25 @@ public class PlayerCarController : CarController
         {
             accelaretionInput = -1 * accelaretion * Time.fixedDeltaTime;
         }
+        if(MovementEnabled == 1 && accelaretionInput != 0 && !audio.isPlaying)
+        {
+            audio.Play();
+        }
+        else if (MovementEnabled == 1 && accelaretionInput == 0 && audio.isPlaying)
+        {
+            audio.Stop();
+        }
         _rigidBody.AddRelativeForce(Vector3.forward * accelaretionInput * trackMultiplier * MovementEnabled);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed * Mathf.Clamp(speed, -1, 1) * Time.fixedDeltaTime);
         realSpeed = _rigidBody.velocity.magnitude;
+        if (realSpeed < 30)
+        {
+            audio.clip = SoundLow;
+        }
+        else
+        {
+            audio.clip = SoundMid;
+        }
     }
 
     protected override void SetRotationPoint()

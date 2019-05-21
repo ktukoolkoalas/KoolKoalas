@@ -24529,6 +24529,8 @@ MonoBehaviour:
   LapCount: 1
   CurrLap: 0
   MovementEnabled: 0
+  SoundLow: {fileID: 8300000, guid: 3b1734661591e2b4f9a41d5057c7fff3, type: 3}
+  SoundMid: {fileID: 8300000, guid: aaddb94424c9c014a9e4b2df9ad95200, type: 3}
   CurrentCheckmarkMaterial: {fileID: 2100000, guid: 6eff986f458ab864a9342f75bd43ecbe,
     type: 2}
   InactiveCheckmarkMaterial: {fileID: 2100000, guid: 063772c9413524f4bb1870d71056f82a,
@@ -29378,6 +29380,8 @@ MonoBehaviour:
   LapCount: 1
   CurrLap: 0
   MovementEnabled: 0
+  SoundLow: {fileID: 0}
+  SoundMid: {fileID: 0}
 --- !u!54 &547612122
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64027,6 +64031,8 @@ MonoBehaviour:
   LapCount: 1
   CurrLap: 0
   MovementEnabled: 0
+  SoundLow: {fileID: 0}
+  SoundMid: {fileID: 0}
 --- !u!54 &1583468780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64159,6 +64165,8 @@ MonoBehaviour:
   LapCount: 1
   CurrLap: 0
   MovementEnabled: 0
+  SoundLow: {fileID: 0}
+  SoundMid: {fileID: 0}
 --- !u!54 &1611038327
 Rigidbody:
   m_ObjectHideFlags: 0

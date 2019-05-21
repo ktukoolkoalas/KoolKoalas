@@ -28,7 +28,10 @@ public abstract class CarController : MonoBehaviour
     public int CurrLap = 0;
 
     public int MovementEnabled = 0;
-    
+
+    protected AudioSource audio;
+    public AudioClip SoundLow;
+    public AudioClip SoundMid;
 
     public float SideSlipAmount
     {
@@ -44,6 +47,9 @@ public abstract class CarController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody>();
         NextCheckmark = Checkmarks.transform.GetChild(0).gameObject;
         GetComponent<TargetIndicatorController>().Target = NextCheckmark;
+        audio = gameObject.AddComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.clip = SoundLow;
     }
 
     void Update()
