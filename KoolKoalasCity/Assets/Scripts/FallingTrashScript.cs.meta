@@ -9,10 +9,8 @@ MonoImporter:
   - paper: {instanceID: 0}
   - scoreText: {instanceID: 0}
   - livesLeftText: {instanceID: 0}
-  - greenParticles: {fileID: 2368818464391089656, guid: 8e735baa622c3da48813cf8dcef8e901,
-      type: 3}
-  - redParticles: {fileID: 785516414696337057, guid: c02d448dacfeed041815371f18b157c1,
-      type: 3}
+  - Red: {fileID: 4037662255110671690, guid: 845da62f63fab32489f034fcfb35f88f, type: 3}
+  - Green: {fileID: 4069227418173427276, guid: 738e3b09619427f468ca236fe6e75a63, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
