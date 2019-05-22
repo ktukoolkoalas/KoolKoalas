@@ -16,7 +16,6 @@ public class FallingTrashScript : MonoBehaviour
     public ParticleSystem Red;
     public ParticleSystem Green;
     // public AudioSource collisionSound;
-    // public ParticleSystem particleEffect;
 
 
     // Start is called before the first frame update
@@ -26,7 +25,6 @@ public class FallingTrashScript : MonoBehaviour
         GlobalData.RecyclingGameScore = 0;
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
         livesLeftText.text = GlobalData.RecyclingGameLifeCount.ToString();
-                            StartCoroutine(EmitCrosses());
 
     }
 
@@ -55,7 +53,6 @@ public class FallingTrashScript : MonoBehaviour
         {
             transform.position = new Vector3(-9.8f, transform.position.y, 0);
         }
-
     }
 
     public void Stop()
@@ -85,28 +82,27 @@ public class FallingTrashScript : MonoBehaviour
             //collisionSound.Play();
             if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
-                GlobalData.RecyclingGameScore++;
                 StartCoroutine(EmitCheckMarks());
+                GlobalData.RecyclingGameScore++;
                 MoveToTop();
             }
             else if (collision.gameObject.name == "PaperBin" || collision.gameObject.name == "PlasticBin" || collision.gameObject.name == "GlassBin" || collision.gameObject.name == "ground")
             {
-                GlobalData.RecyclingGameLifeCount--;
                 StartCoroutine(EmitCrosses());
+                GlobalData.RecyclingGameLifeCount--;
                 MoveToTop();
             }
             
         }
     }
-        IEnumerator EmitCheckMarks()
-        {
-            Green.Play();
-            yield return null;
-        }
-        IEnumerator EmitCrosses()
-        {
-            Red.Play();
-            yield return null;
-        }
-
+    IEnumerator EmitCheckMarks()
+    {
+        Green.Play();
+        yield return null;
+    }
+    IEnumerator EmitCrosses()
+    {
+         Red.Play();
+         yield return null;
+    }
 }
