@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrashController : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class TrashController : MonoBehaviour
         {
             GlobalData.TrashGameDropping = true;
             TrashObjects[Random.Range(0, 3)].GetComponent<FallingTrashScript>().Drop(verticalSpeed, horizontalSpeed);
+        }
+        if (Input.GetKey("escape"))
+        {
+            SceneManager.LoadScene("MainScene");
         }
     }
 }
