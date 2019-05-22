@@ -7,6 +7,7 @@ TagManager:
   - GameLinkHouse
   - UIDraggable
   - Koala
+  - Recycling
   layers:
   - Default
   - TransparentFX
