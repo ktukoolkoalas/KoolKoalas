@@ -16,7 +16,7 @@ public static class GlobalData
     public static float ProgressBarValue = 0;
 
     public static bool TrashGameDropping = false;
-    public static int MemoryGameLevel = 1;
+    public static int MemoryGameLevel = 2;
     public static int MemoryGameBeaten = 0;
     public static int restaurantNeededScore = 2;
 

@@ -57,7 +57,7 @@ public class RestaurantController : MonoBehaviour
         GetLevel();
         instructions.SetActive(true);
         timeText.text = "32";
-        scoreText.text = "0";
+        scoreText.text = "0 / " + GlobalData.restaurantNeededScore;
         
     }
 
@@ -68,7 +68,7 @@ public class RestaurantController : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
-        scoreText.text = score.ToString();
+        scoreText.text = score.ToString() + " / " + GlobalData.restaurantNeededScore.ToString();
         if (orderAlert.activeInHierarchy == false)
         {
             if (clickCount == orderCount)
@@ -122,7 +122,7 @@ public class RestaurantController : MonoBehaviour
     }
     private IEnumerator Counter()
     {
-        int currCountdownValue = 32;
+        int currCountdownValue = 15 + GlobalData.restaurantNeededScore * 3 + (GlobalData.MemoryGameLevel - 1) * 10;
         while (currCountdownValue > 0)
         {
             yield return new WaitForSeconds(1.0f);
@@ -132,14 +132,19 @@ public class RestaurantController : MonoBehaviour
                 DisableButtons();
                 timeover.SetActive(true);
                 totalScore.text = score.ToString();
+                choices.SetActive(false);
                 coinsreceived.text = (score / 2).ToString();
                 coins = score / 2;
-                if (score > GlobalData.restaurantNeededScore)
+                soclose.SetActive(true);
+                congratulations.SetActive(false);
+                if (score >= GlobalData.restaurantNeededScore)
                 {
+                    soclose.SetActive(false);
+                    congratulations.SetActive(true);
                     coinsreceived.text = (score * 2).ToString();
                     coins = score * 2;
                     if(GlobalData.restaurantNeededScore < 5)
-                    GlobalData.restaurantNeededScore++;
+                        GlobalData.restaurantNeededScore++;
                     else
                     {
                         GlobalData.restaurantNeededScore = 2;
@@ -153,7 +158,7 @@ public class RestaurantController : MonoBehaviour
     }
     private IEnumerator Countdown()
     {
-        int currCountdownValue = 3;
+        int currCountdownValue = 3 + (GlobalData.MemoryGameLevel - 1);
         countdownText.text = currCountdownValue.ToString();
         while (currCountdownValue > 0)
         {
@@ -381,7 +386,7 @@ public class RestaurantController : MonoBehaviour
         choices.SetActive(false);
         orderAlert.SetActive(true);
         StartCoroutine(Countdown());
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(3.0f + (GlobalData.MemoryGameLevel - 1) * 1.0f);
         orderAlert.SetActive(false);
         choices.SetActive(true);
         EnableButtons();
