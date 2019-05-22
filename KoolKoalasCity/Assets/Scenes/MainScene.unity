@@ -14196,6 +14196,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1658736354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 155128780471222653, guid: 3c27939070c8c4b47bcba3f8be610474,
+    type: 3}
+  m_PrefabInstance: {fileID: 1068808048525234933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1667459082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19480,6 +19492,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1832002290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 932820770444489184, guid: 579090fe364f14d46ae6d97e880ccb2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4960676122987097197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1834593911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20989,6 +21013,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4581528642220495576}
     m_Modifications:
+    - target: {fileID: 1285476857501980, guid: 08d1778ee10c94c998aca1780872bfcd, type: 3}
+      propertyPath: m_Name
+      value: House21_Restaurant
+      objectReference: {fileID: 0}
     - target: {fileID: 4757854315885496, guid: 08d1778ee10c94c998aca1780872bfcd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.55
@@ -21032,10 +21060,6 @@ PrefabInstance:
     - target: {fileID: 4757854315885496, guid: 08d1778ee10c94c998aca1780872bfcd, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.1930226
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285476857501980, guid: 08d1778ee10c94c998aca1780872bfcd, type: 3}
-      propertyPath: m_Name
-      value: House21_Restaurant
       objectReference: {fileID: 0}
     - target: {fileID: 212958270115617758, guid: 08d1778ee10c94c998aca1780872bfcd,
         type: 3}
@@ -25485,6 +25509,14 @@ PrefabInstance:
       propertyPath: hintLogo
       value: 
       objectReference: {fileID: 1739365527}
+    - target: {fileID: 1832075433, guid: 97fca9607e41a70479b4861bd5124529, type: 3}
+      propertyPath: koins
+      value: 
+      objectReference: {fileID: 1832002290}
+    - target: {fileID: 1832075433, guid: 97fca9607e41a70479b4861bd5124529, type: 3}
+      propertyPath: lives
+      value: 
+      objectReference: {fileID: 1658736354}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fca9607e41a70479b4861bd5124529, type: 3}
 --- !u!224 &4581528642220495576 stripped
