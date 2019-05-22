@@ -33,6 +33,7 @@ public class MiniGameController : MonoBehaviour
         }
         GlobalData.KoinChange += CoinReward;
         SceneManager.LoadScene(GlobalData.MainScene);
+        GlobalData.ProgressDone += 1;
     }
 
     public void ShowPopUpButton()
