@@ -13,6 +13,10 @@ public class FallingTrashScript : MonoBehaviour
     public Sprite paper;
     public Text scoreText;
     public Text livesLeftText;
+    public ParticleSystem Red;
+    public ParticleSystem Green;
+    public AudioSource collisionSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class FallingTrashScript : MonoBehaviour
         GlobalData.RecyclingGameScore = 0;
         scoreText.text = GlobalData.RecyclingGameScore.ToString();
         livesLeftText.text = GlobalData.RecyclingGameLifeCount.ToString();
+
     }
 
     // Update is called once per frame
@@ -35,6 +40,7 @@ public class FallingTrashScript : MonoBehaviour
         {
             Stop();
             SceneManager.LoadScene("EndScene");
+            //GlobalData.RecyclingGameScore = 0;
         }
 
         //left side of the screen
@@ -48,7 +54,6 @@ public class FallingTrashScript : MonoBehaviour
         {
             transform.position = new Vector3(-9.8f, transform.position.y, 0);
         }
-
     }
 
     public void Stop()
@@ -75,17 +80,30 @@ public class FallingTrashScript : MonoBehaviour
     {
         if (GlobalData.RecyclingGameLifeCount > 0)
         {
-            if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
+            collisionSound.Play();
+            if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin") || (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin") || (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
+                StartCoroutine(EmitCheckMarks());
                 GlobalData.RecyclingGameScore++;
                 MoveToTop();
             }
             else if (collision.gameObject.name == "PaperBin" || collision.gameObject.name == "PlasticBin" || collision.gameObject.name == "GlassBin" || collision.gameObject.name == "ground")
             {
+                StartCoroutine(EmitCrosses());
                 GlobalData.RecyclingGameLifeCount--;
                 MoveToTop();
             }
-            
+
         }
+    }
+    IEnumerator EmitCheckMarks()
+    {
+        Green.Play();
+        yield return null;
+    }
+    IEnumerator EmitCrosses()
+    {
+        Red.Play();
+        yield return null;
     }
 }
