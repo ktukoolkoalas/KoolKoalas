@@ -40,6 +40,7 @@ public class FallingTrashScript : MonoBehaviour
         {
             Stop();
             SceneManager.LoadScene("EndScene");
+            //GlobalData.RecyclingGameScore = 0;
         }
 
         //left side of the screen

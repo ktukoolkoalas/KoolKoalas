@@ -35,4 +35,12 @@ public class TrashController : MonoBehaviour
             TrashObjects[Random.Range(0, 3)].GetComponent<FallingTrashScript>().Drop(verticalSpeed, horizontalSpeed);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (GlobalData.RecyclingGameLifeCount <= 0)
+        {
+            GlobalData.KoinChange += GlobalData.RecyclingGameScore - 10;
+        }
+    }
 }
