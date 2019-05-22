@@ -181,7 +181,7 @@ public class MemorySceneController : MonoBehaviour
             {
                 GlobalData.MemoryGameBeaten++;
                 GlobalData.MemoryGameLevel++;
-                GlobalData.NeedToUpdateProgress = true;
+                GlobalData.ProgressDone = 1;
             }
             yield return new WaitForSeconds(1.5f);
             SceneManager.LoadScene("GameScene");

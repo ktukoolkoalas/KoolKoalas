@@ -15,10 +15,10 @@ public class ProgressBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GlobalData.NeedToUpdateProgress)
+        if (GlobalData.ProgressDone > 0)
         {
-            GlobalData.NeedToUpdateProgress = false;
-            FillProgressBar(25);
+            FillProgressBar(GlobalData.ProgressDone);
+            GlobalData.ProgressDone = 0;
         }
     }
 
@@ -27,7 +27,7 @@ public class ProgressBarController : MonoBehaviour
 
     public void FillProgressBar(int procentage)
     {
-        StartCoroutine(FillBar(procentage));
+        StartCoroutine(FillBar(100/9 * procentage));
     }
     IEnumerator FillBar(int procentage)
     {
