@@ -153,13 +153,16 @@ public class RestaurantController : MonoBehaviour
                         star2.sprite = coloredKoala;
                     if (score > GlobalData.restaurantNeededScore + 1)
                         star2.sprite = coloredKoala;
-                    if(GlobalData.restaurantNeededScore < 5)
+                    if (GlobalData.restaurantNeededScore < 5)
+                    {
                         GlobalData.restaurantNeededScore++;
+                    }
                     else
                     {
                         GlobalData.restaurantNeededScore = 2;
                         GlobalData.MemoryGameLevel++;
                     }
+                    GlobalData.ProgressDone += 0.5f;
                 }
                 GlobalData.KoinChange += coins;
             }

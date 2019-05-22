@@ -14,7 +14,7 @@ public static class GlobalData
     public static int HeartChange = 0;
 
     public static float ProgressBarValue = 0;
-    public static int ProgressDone = 0;
+    public static float ProgressDone = 0;
 
     public static bool TrashGameDropping = false;
     public static int MemoryGameLevel = 2;
