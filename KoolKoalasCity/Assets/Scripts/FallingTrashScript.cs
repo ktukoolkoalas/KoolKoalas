@@ -15,7 +15,7 @@ public class FallingTrashScript : MonoBehaviour
     public Text livesLeftText;
     public ParticleSystem Red;
     public ParticleSystem Green;
-    // public AudioSource collisionSound;
+    public AudioSource collisionSound;
 
 
     // Start is called before the first frame update
@@ -80,7 +80,7 @@ public class FallingTrashScript : MonoBehaviour
     {
         if (GlobalData.RecyclingGameLifeCount > 0)
         {
-            //collisionSound.Play();
+            collisionSound.Play();
             if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
                 StartCoroutine(EmitCheckMarks());
