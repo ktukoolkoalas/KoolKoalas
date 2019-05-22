@@ -8,6 +8,10 @@ public class RestaurantController : MonoBehaviour
 {
     [SerializeField] private Sprite[] images;
     private int score = 0;
+    public Sprite coloredKoala;
+    public Image star1;
+    public Image star2;
+    public Image star3;
     public GameObject timeLabel;
     public Text timeText;
     public GameObject scoreLabel;
@@ -135,14 +139,20 @@ public class RestaurantController : MonoBehaviour
                 choices.SetActive(false);
                 coinsreceived.text = (score / 2).ToString();
                 coins = score / 2;
-                soclose.SetActive(true);
-                congratulations.SetActive(false);
+                
+                //soclose.SetActive(true);
+                //congratulations.SetActive(false);
                 if (score >= GlobalData.restaurantNeededScore)
                 {
-                    soclose.SetActive(false);
-                    congratulations.SetActive(true);
+                    star1.sprite = coloredKoala;
+                    //soclose.SetActive(false);
+                    //congratulations.SetActive(true);
                     coinsreceived.text = (score * 2).ToString();
                     coins = score * 2;
+                    if (score > GlobalData.restaurantNeededScore)
+                        star2.sprite = coloredKoala;
+                    if (score > GlobalData.restaurantNeededScore + 1)
+                        star2.sprite = coloredKoala;
                     if(GlobalData.restaurantNeededScore < 5)
                         GlobalData.restaurantNeededScore++;
                     else
