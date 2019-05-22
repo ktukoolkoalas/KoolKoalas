@@ -7,10 +7,14 @@ using UnityEngine.UI;
 public class RestaurantController : MonoBehaviour
 {
     [SerializeField] private Sprite[] images;
-    private int _score = 0;
+    private int score = 0;
     public GameObject timeLabel;
     public Text timeText;
     public GameObject scoreLabel;
+    public GameObject congratulations;
+    public GameObject soclose;
+    public Text coinsreceived;
+    private int coins;
     public Text scoreText;
     private int orderCount;
     private int clickCount = 0;
@@ -35,12 +39,13 @@ public class RestaurantController : MonoBehaviour
     public Button juice;
     public Button muffin;
     public Button popcorn;
-    //private int level;
     public GameObject instructions;
     public GameObject timeover;
     public GameObject choices;
     public Image choice1;
     public Image choice2;
+    public Image choice3;
+    public Image choice4;
     public Text totalScore;
     public Text countdownText;
     private Color transparent = new Color(0, 0, 0, 0);
@@ -63,7 +68,7 @@ public class RestaurantController : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
-        scoreText.text =  _score.ToString();
+        scoreText.text = score.ToString();
         if (orderAlert.activeInHierarchy == false)
         {
             if (clickCount == orderCount)
@@ -78,6 +83,8 @@ public class RestaurantController : MonoBehaviour
                 else StartCoroutine(ShowWrong());
                 choice1.color = transparent;
                 choice2.color = transparent;
+                choice3.color = transparent;
+                choice4.color = transparent;
                 orders = Generate(orderCount);
                 ChangeOrderSprites();
                 StartCoroutine(ShowOrder());
@@ -85,8 +92,12 @@ public class RestaurantController : MonoBehaviour
             }
             if (clickCount >= 1)
                 choice1.color = visible;
-            if (clickCount == 2)
+            if (clickCount >= 2)
                 choice2.color = visible;
+            if (clickCount >= 3)
+                choice3.color = visible;
+            if (clickCount >= 4)
+                choice4.color = visible;
         }
     }
     public void BackToTown()
@@ -105,6 +116,8 @@ public class RestaurantController : MonoBehaviour
         choices.SetActive(true);
         choice1.color = transparent;
         choice2.color = transparent;
+        choice3.color = transparent;
+        choice4.color = transparent;
         StartCoroutine(ShowOrder());
     }
     private IEnumerator Counter()
@@ -118,9 +131,22 @@ public class RestaurantController : MonoBehaviour
             {
                 DisableButtons();
                 timeover.SetActive(true);
-                totalScore.text = _score.ToString();
-                if (_score > 3)
-                    GlobalData.MemoryGameLevel++;
+                totalScore.text = score.ToString();
+                coinsreceived.text = (score / 2).ToString();
+                coins = score / 2;
+                if (score > GlobalData.restaurantNeededScore)
+                {
+                    coinsreceived.text = (score * 2).ToString();
+                    coins = score * 2;
+                    if(GlobalData.restaurantNeededScore < 5)
+                    GlobalData.restaurantNeededScore++;
+                    else
+                    {
+                        GlobalData.restaurantNeededScore = 2;
+                        GlobalData.MemoryGameLevel++;
+                    }
+                }
+                GlobalData.KoinChange += coins;
             }
             else timeText.text = currCountdownValue.ToString();
         }
@@ -203,66 +229,111 @@ public class RestaurantController : MonoBehaviour
             choice1.sprite = images[0];
         if (clickCount == 2)
             choice2.sprite = images[0];
+        if (clickCount == 3)
+            choice3.sprite = images[0];
+        if (clickCount == 4)
+            choice4.sprite = images[0];
     }
     public void Donut() { answer[clickCount++] = 1;
         if (clickCount == 1)
             choice1.sprite = images[1];
         if (clickCount == 2)
             choice2.sprite = images[1];
+        if (clickCount == 3)
+            choice3.sprite = images[1];
+        if (clickCount == 4)
+            choice4.sprite = images[1];
     }
     public void Soda() { answer[clickCount++] = 2;
         if (clickCount == 1)
             choice1.sprite = images[2];
         if (clickCount == 2)
             choice2.sprite = images[2];
+        if (clickCount == 3)
+            choice3.sprite = images[2];
+        if (clickCount == 4)
+            choice4.sprite = images[2];
     }
     public void IceCream() { answer[clickCount++] = 3;
         if (clickCount == 1)
             choice1.sprite = images[3];
         if (clickCount == 2)
             choice2.sprite = images[3];
+        if (clickCount == 3)
+            choice3.sprite = images[3];
+        if (clickCount == 4)
+            choice4.sprite = images[3];
     }
     public void Cupcake() { answer[clickCount++] = 4;
         if (clickCount == 1)
             choice1.sprite = images[4];
         if (clickCount == 2)
             choice2.sprite = images[4];
+        if (clickCount == 3)
+            choice3.sprite = images[4];
+        if (clickCount == 4)
+            choice4.sprite = images[4];
     }
     public void Burger() { answer[clickCount++] = 5;
         if (clickCount == 1)
             choice1.sprite = images[5];
         if (clickCount == 2)
             choice2.sprite = images[5];
+        if (clickCount == 3)
+            choice3.sprite = images[5];
+            choice3.sprite = images[5];
+        if (clickCount == 4)
+            choice4.sprite = images[5];
     }
     public void Coffee() { answer[clickCount++] = 6;
         if (clickCount == 1)
             choice1.sprite = images[6];
         if (clickCount == 2)
             choice2.sprite = images[6];
+        if (clickCount == 3)
+            choice3.sprite = images[6];
+        if (clickCount == 4)
+            choice4.sprite = images[6];
     }
     public void Fries() { answer[clickCount++] = 7;
         if (clickCount == 1)
             choice1.sprite = images[7];
         if (clickCount == 2)
             choice2.sprite = images[7];
+        if (clickCount == 3)
+            choice3.sprite = images[7];
+        if (clickCount == 4)
+            choice4.sprite = images[7];
     }
     public void Juice() { answer[clickCount++] = 8;
         if (clickCount == 1)
             choice1.sprite = images[8];
         if (clickCount == 2)
             choice2.sprite = images[8];
+        if (clickCount == 3)
+            choice3.sprite = images[8];
+        if (clickCount == 4)
+            choice4.sprite = images[8];
     }
     public void Muffin() { answer[clickCount++] = 9;
         if (clickCount == 1)
             choice1.sprite = images[9];
         if (clickCount == 2)
             choice2.sprite = images[9];
+        if (clickCount == 3)
+            choice3.sprite = images[9];
+        if (clickCount == 4)
+            choice4.sprite = images[9];
     }
     public void Popcorn() { answer[clickCount++] = 10;
         if (clickCount == 1)
             choice1.sprite = images[10];
         if (clickCount == 2)
             choice2.sprite = images[10];
+        if (clickCount == 3)
+            choice3.sprite = images[10];
+        if (clickCount == 4)
+            choice4.sprite = images[10];
     }
     private int[] Sort(int[] numbers)
     {
@@ -287,7 +358,7 @@ public class RestaurantController : MonoBehaviour
             if (answer[i] != orders[i])
                 return false;
         }
-        _score++;
+        score++;
         return true;
     }
     private IEnumerator ShowCorrect()

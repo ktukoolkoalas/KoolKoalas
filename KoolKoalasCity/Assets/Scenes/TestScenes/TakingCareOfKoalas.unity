@@ -1107,8 +1107,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4f2dbf43eb53ecb4fa0fa5dd58b24935, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.193
+  m_PlayOnAwake: 0
+  m_Volume: 0.782
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1233,7 +1233,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2b3a4845fbb66b343ab045920f118d9e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7d974271b58bf604a9e68ca9a5dfd8d4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2074,6 +2074,8 @@ MonoBehaviour:
   foodSound: {fileID: 1548193145}
   cleanSound: {fileID: 967362728}
   playSound: {fileID: 1429282184}
+  happyKoala: {fileID: 506222873}
+  sadKoala: {fileID: 555950949}
   hearts: {fileID: 1305650506}
   food: {fileID: 911715584}
   bubbles: {fileID: 1170851848}
@@ -7203,7 +7205,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0e2361bb48ede4f429bdd85855506055, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.198
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -17341,7 +17343,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b3a4845fbb66b343ab045920f118d9e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.307
+  m_Volume: 0.104
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -17706,7 +17708,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 31d7ee135dca860429b21de4e7b0a5be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.352
   m_Pitch: 1
   Loop: 0
   Mute: 0

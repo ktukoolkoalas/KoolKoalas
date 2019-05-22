@@ -21,6 +21,8 @@ public class KoalaCareController : MonoBehaviour
     public AudioSource foodSound;
     public AudioSource cleanSound;
     public AudioSource playSound;
+    public AudioSource happyKoala;
+    public AudioSource sadKoala;
 
     private bool _serverTime;
     private bool action = false;
@@ -45,6 +47,9 @@ public class KoalaCareController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GlobalData.food < 21 || GlobalData.happy < 21 || GlobalData.clean < 21)
+            StartCoroutine(FadeIn(sadKoala, 0.5f));
+        else StartCoroutine(FadeIn(happyKoala, 0.5f));
         happy.SetActive(false);
         sad.SetActive(false);
         foodAlert.SetActive(false);
@@ -62,6 +67,7 @@ public class KoalaCareController : MonoBehaviour
         {
             sad.SetActive(true);
             happy.SetActive(false);
+            
         }
         else
         {
@@ -122,9 +128,58 @@ public class KoalaCareController : MonoBehaviour
         {
             updateStatus();
             period = 0;
+            if(GlobalData.food < 21 || GlobalData.happy < 21 || GlobalData.clean < 21)
+            {
+                if (happyKoala.isPlaying)
+                {
+                    StartCoroutine(FadeOut(happyKoala, 0.5f));
+                    StartCoroutine(FadeIn(sadKoala, 0.5f));
+                }
+
+            }
+            else
+            {
+                if (sadKoala.isPlaying)
+                {
+                    StartCoroutine(FadeOut(sadKoala, 0.5f));
+                    StartCoroutine(FadeIn(happyKoala, 0.5f));
+                }
+            }
         }
         period += UnityEngine.Time.deltaTime;
 
+    }
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = 0.2f;
+
+        audioSource.volume = 0;
+        audioSource.Play();
+
+        while (audioSource.volume < 1.0f)
+        {
+            audioSource.volume += startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.volume = 1f;
     }
 
     void updateStatus()
