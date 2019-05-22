@@ -162,7 +162,7 @@ public class RestaurantController : MonoBehaviour
                         GlobalData.restaurantNeededScore = 2;
                         GlobalData.MemoryGameLevel++;
                     }
-                    GlobalData.ProgressDone += 0.5f;
+                    GlobalData.ProgressDone += 1;
                 }
                 GlobalData.KoinChange += coins;
             }
