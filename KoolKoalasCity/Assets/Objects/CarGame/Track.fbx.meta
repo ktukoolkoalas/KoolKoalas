@@ -10,6 +10,8 @@ ModelImporter:
     400002: Plane
     400004: //RootNode
     2100000: track
+    2100002: Track
+    2100004: Curves
     2300000: BezierCurve
     2300002: Plane
     3300000: BezierCurve

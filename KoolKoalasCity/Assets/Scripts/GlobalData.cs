@@ -6,7 +6,7 @@ using UnityEngine;
 public static class GlobalData
 {
     public static string MainScene = "";
-    public static bool NeedToUpdateProgress = false;
+    //public static bool NeedToUpdateProgress = false;
     public static int KoinChange = 0;
     public static int KoinCounter = 30; //used only by KoinController
     public static int PopUpCounter = 2;
@@ -14,6 +14,7 @@ public static class GlobalData
     public static int HeartChange = 0;
 
     public static float ProgressBarValue = 0;
+    public static int ProgressDone = 0;
 
     public static bool TrashGameDropping = false;
     public static int MemoryGameLevel = 2;
@@ -34,5 +35,7 @@ public static class GlobalData
     public static DateTime lastFed = new DateTime();
     public static DateTime lastCleaned = new DateTime();
     public static DateTime lastPlayed = new DateTime();
+
+    public static int RaceCompleted = 0;
 
 }

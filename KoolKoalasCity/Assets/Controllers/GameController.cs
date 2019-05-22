@@ -36,27 +36,26 @@ public class GameController : MonoBehaviour
                 {
                     if (GlobalData.HeartCounter > 0)
                     {
-                        if(hit.transform.name == "MemoryGameCube")
+                        if(hit.transform.name == "RestaurantGameCube")
                         {
-                            Debug.Log("Going to Memory Game");
                             SceneManager.LoadScene("RestaurantScene");
                         }
-                        else if (hit.transform.name == "TestCube")
-                        {
-                            
-                        }
-                        else if (hit.transform.name == "RecycleGameCube")
+
+                        else if (hit.transform.name == "RecyclingGameCube")
                         {
                             SceneManager.LoadScene("RecyclingGame");
                         }
+
                         else if (hit.transform.name == "CarGameCube")
                         {
                             SceneManager.LoadScene("CarGame");
-                        }
-                        else
+                        }  
+
+                        /*else
                         {
                             SceneManager.LoadScene("GameScene");
-                        }
+                        }*/
+
                         GlobalData.HeartChange--;
                     }
                     else
