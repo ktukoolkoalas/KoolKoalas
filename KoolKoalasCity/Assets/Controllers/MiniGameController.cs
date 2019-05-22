@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MiniGameController : MonoBehaviour
 {
 
-    public int CoinReward = 10;
+    public int CoinReward = GlobalData.RecyclingGameScore;
     public GameObject PopUpButton;
 
     // Start is called before the first frame update
