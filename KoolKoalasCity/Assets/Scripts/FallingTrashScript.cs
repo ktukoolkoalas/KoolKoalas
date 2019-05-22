@@ -81,7 +81,7 @@ public class FallingTrashScript : MonoBehaviour
         if (GlobalData.RecyclingGameLifeCount > 0)
         {
             collisionSound.Play();
-            if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin" )|| (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin" )|| (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
+            if ((this.GetComponent<SpriteRenderer>().sprite == paper && collision.gameObject.name == "PaperBin") || (this.GetComponent<SpriteRenderer>().sprite == plastic && collision.gameObject.name == "PlasticBin") || (this.GetComponent<SpriteRenderer>().sprite == glass && collision.gameObject.name == "GlassBin"))
             {
                 StartCoroutine(EmitCheckMarks());
                 GlobalData.RecyclingGameScore++;
@@ -93,7 +93,7 @@ public class FallingTrashScript : MonoBehaviour
                 GlobalData.RecyclingGameLifeCount--;
                 MoveToTop();
             }
-            
+
         }
     }
     IEnumerator EmitCheckMarks()
@@ -103,7 +103,7 @@ public class FallingTrashScript : MonoBehaviour
     }
     IEnumerator EmitCrosses()
     {
-         Red.Play();
-         yield return null;
+        Red.Play();
+        yield return null;
     }
 }
