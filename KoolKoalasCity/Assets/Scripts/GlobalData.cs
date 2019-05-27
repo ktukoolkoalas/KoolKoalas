@@ -27,6 +27,7 @@ public static class GlobalData
 
     public static int RecyclingGameScore = 0;
     public static int RecyclingGameLifeCount = 3;
+    public static int RecyclingCompleted = 0;
 
     public static int food = 0;
     public static int clean = 0;
@@ -37,5 +38,8 @@ public static class GlobalData
     public static DateTime lastPlayed = new DateTime();
 
     public static int RaceCompleted = 0;
+
+    public static bool[] BoughtReserve = new bool[12];
+    public static List<GameObject> ShownReserve = new List<GameObject>();
 
 }
