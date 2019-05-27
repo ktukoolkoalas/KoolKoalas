@@ -332,6 +332,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton66.SetActive(true);
             ShowButton66.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[10] = true;
         }
         else
         {
@@ -345,6 +346,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff6.SetActive(true);
         ReStuff6.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[10] = ReStuff6;
     }
 
     public void BuyStuff7()

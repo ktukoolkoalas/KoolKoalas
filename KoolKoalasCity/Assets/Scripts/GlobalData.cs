@@ -40,6 +40,6 @@ public static class GlobalData
     public static int RaceCompleted = 0;
 
     public static bool[] BoughtReserve = new bool[12];
-    public static List<GameObject> ShownReserve = new List<GameObject>();
+    public static GameObject[] ShownReserve = new GameObject[12];
 
 }
