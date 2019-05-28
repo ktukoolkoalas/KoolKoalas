@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -6,11 +7,6 @@ using UnityEngine;
 
 public class SaveController : MonoBehaviour
 {
-    
-    public SaveController()
-    {
-
-    }
 
     public void SaveFile()
     {
@@ -47,6 +43,15 @@ public class SaveController : MonoBehaviour
 
     public class Save
     {
+        private int Koins { get; set; }
+        private float Progress { get; set; }
+        private int Memory { get; set; }
+        private DateTime RewardTime { get; set; }
+        private int Recycling { get; set; }
+        private int Race { get; set; }
+        private int Food { get; set; }
+        private int Clean { get; set; }
+        private int Happy { get; set; }
         public Save()
         {
             
