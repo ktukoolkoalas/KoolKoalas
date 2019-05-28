@@ -8,6 +8,12 @@ TagManager:
   - UIDraggable
   - Koala
   - Recycling
+  - Trash1
+  - Trash2
+  - Trash3
+  - Trash4
+  - Trash5
+  - Trash6
   layers:
   - Default
   - TransparentFX

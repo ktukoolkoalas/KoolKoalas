@@ -7,7 +7,7 @@ using System;
 //This is the main script that will run the game.
 public class GameController : MonoBehaviour
 {
-
+    [SerializeField] private GameObject[] images; 
     public GameObject CityObject;
     public HeartController HeartAlertObject;
 
@@ -25,6 +25,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DeleteTrash(0.1f, "Trash1");
+        DeleteTrash(0.2f, "Trash2");
+        DeleteTrash(0.3f, "Trash3");
+        DeleteTrash(0.4f, "Trash4");
+        DeleteTrash(0.5f, "Trash5");
+
         if (Time.time > nextSaveTime)
         {
             nextSaveTime += savePeriod;
@@ -77,6 +83,16 @@ public class GameController : MonoBehaviour
             }
         }
     }
-
+    public void DeleteTrash(float progressValue, string tagName)
+    {
+        if (GlobalData.ProgressBarValue >= progressValue)
+        {
+            for (int i = 0; i < images.Length; i++)
+            {
+                if (images[i].tag == tagName)
+                    images[i].SetActive(false);
+            }
+        }
+    }
 
 }
