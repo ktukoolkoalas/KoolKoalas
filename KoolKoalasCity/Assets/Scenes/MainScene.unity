@@ -17301,7 +17301,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2d710006e968b5f4381c5f0771d6436d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -30483,6 +30483,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 34618e2b93aa4d747b4531986d9e8175,
         type: 3}
+    - target: {fileID: 4424611322997698263, guid: 97fca9607e41a70479b4861bd5124529,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 168618429
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424611322997698263, guid: 97fca9607e41a70479b4861bd5124529,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 4424611323206296274, guid: 97fca9607e41a70479b4861bd5124529,
         type: 3}
       propertyPath: m_Sprite
@@ -30804,6 +30814,10 @@ PrefabInstance:
       propertyPath: progress
       value: 
       objectReference: {fileID: 271721970}
+    - target: {fileID: 1832075433, guid: 97fca9607e41a70479b4861bd5124529, type: 3}
+      propertyPath: Instructions
+      value: 
+      objectReference: {fileID: 760550597}
     - target: {fileID: 4581528643213748931, guid: 97fca9607e41a70479b4861bd5124529,
         type: 3}
       propertyPath: m_AnchoredPosition.y

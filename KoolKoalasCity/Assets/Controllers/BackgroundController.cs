@@ -16,7 +16,7 @@ public class BackgroundController : MonoBehaviour
     public Sprite NightBackground;
     public Text koins;
     public Text progress;
-   // public Text lives;
+    public GameObject Instructions;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class BackgroundController : MonoBehaviour
         currentTime = DateTime.Now;
         DayCycleTime = currentTime.AddSeconds(DayCycle);
         this.GetComponent<SpriteRenderer>().sprite = DayBackground;
+        //Instructions.SetActive(true);
     }
 
     // Update is called once per frame
