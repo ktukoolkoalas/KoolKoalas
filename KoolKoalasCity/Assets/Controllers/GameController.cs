@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject CityObject;
     public HeartController HeartAlertObject;
     public Text ProgressText;
+    public GameObject Welcome;
 
     SaveController saving;
     float nextSaveTime = 0.0f;
@@ -97,6 +98,11 @@ public class GameController : MonoBehaviour
                     images[i].SetActive(false);
             }
         }
+    }
+
+    public void CloseWindow()
+    {
+        Welcome.SetActive(false);
     }
 
 }
