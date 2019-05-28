@@ -18,6 +18,7 @@ public class CarCameraController : MonoBehaviour
     [SerializeField] Text CountDownText;
     [SerializeField] Text LapText;
     [SerializeField] GameObject ScorePanel;
+    [SerializeField] GameObject InstructionPanel;
 
     [SerializeField] int ScaleParts = 50;
     [SerializeField] float SizeMultiplier = 0.5f;
@@ -26,7 +27,6 @@ public class CarCameraController : MonoBehaviour
     void Start()
     {
         _observableRigidBody = observable.GetComponent<Rigidbody>();
-        StartCoroutine(CountDownRace());
     }
 
     // Update is called once per frame
@@ -121,5 +121,12 @@ public class CarCameraController : MonoBehaviour
         }
         SceneManager.LoadScene("MainScene");
 
+    }
+
+    public void ClickInstructionsCloseButton()
+    {
+        InstructionPanel.SetActive(false);
+
+        StartCoroutine(CountDownRace());
     }
 }

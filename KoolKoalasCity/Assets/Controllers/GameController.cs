@@ -11,15 +11,26 @@ public class GameController : MonoBehaviour
     public GameObject CityObject;
     public HeartController HeartAlertObject;
 
+    SaveController saving;
+    float nextSaveTime = 0.0f;
+    float savePeriod = 30f;
+
     // Use this for initialization
     void Start()
     {
-
+        saving = transform.GetComponent<SaveController>();
+        saving.LoadFile();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > nextSaveTime)
+        {
+            nextSaveTime += savePeriod;
+            saving.SaveFile();
+        }
+
         if (Input.GetKey("escape"))
         {
             Application.Quit();
