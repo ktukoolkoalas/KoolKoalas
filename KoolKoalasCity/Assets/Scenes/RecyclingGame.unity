@@ -274,7 +274,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 04c6303163e22ad4c98937ece57e3fa6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.123
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1862,6 +1862,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1864332811, guid: c1f2e2a79287ade4097e350141467be1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864332811, guid: c1f2e2a79287ade4097e350141467be1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 923057506345793454, guid: c1f2e2a79287ade4097e350141467be1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1872,8 +1880,122 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BackToTown
       objectReference: {fileID: 0}
+    - target: {fileID: 2802932059934564197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802932059934564197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802932059934564197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802932059934564197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -195
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772451386946256197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772451386946256197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772451386946256197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -68.844
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772451386946256197, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.4000211
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316534573459172867, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316534573459172867, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316534573459172867, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -68.169
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316534573459172867, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 188.69998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046530775937852865, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 47c1120193bccdd4f9276c0a838df421,
+        type: 3}
+    - target: {fileID: 7247112811947786707, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 47c1120193bccdd4f9276c0a838df421,
+        type: 3}
+    - target: {fileID: 5038896705595240756, guid: c1f2e2a79287ade4097e350141467be1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 47c1120193bccdd4f9276c0a838df421,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1f2e2a79287ade4097e350141467be1, type: 3}
+--- !u!114 &1651013942 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247112811947786707, guid: c1f2e2a79287ade4097e350141467be1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1651013941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1651013943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3046530775937852865, guid: c1f2e2a79287ade4097e350141467be1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1651013941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1651013944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5038896705595240756, guid: c1f2e2a79287ade4097e350141467be1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1651013941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1677369837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2319,6 +2441,10 @@ MonoBehaviour:
   instructions: {fileID: 1763137018}
   totalScore: {fileID: 5151405912059510190}
   coins: {fileID: 9146476548440647039}
+  coloredStar: {fileID: 21300000, guid: 570ffa7c042e30040a997ce901335913, type: 3}
+  star1: {fileID: 1651013944}
+  star2: {fileID: 1651013943}
+  star3: {fileID: 1651013942}
 --- !u!1 &1989365466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8325468739779247403, guid: 5fcf15b3b79c70146b0cc56705bcb8d6,
