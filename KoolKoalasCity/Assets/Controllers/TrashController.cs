@@ -19,6 +19,10 @@ public class TrashController : MonoBehaviour
     public GameObject instructions;
     public Text totalScore;
     public Text coins;
+    public Sprite coloredStar;
+    public Image star1;
+    public Image star2;
+    public Image star3;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,21 @@ public class TrashController : MonoBehaviour
             totalScore.text = GlobalData.RecyclingGameScore.ToString();
             coins.text = GlobalData.RecyclingGameScore.ToString();
             GlobalData.TrashGameDropping = false;
+            if(GlobalData.RecyclingGameScore <= 5)
+            {
+                star1.sprite = coloredStar;
+            }
+            if(GlobalData.RecyclingGameScore <= 10 && GlobalData.RecyclingGameScore > 5)
+            {
+                star1.sprite = coloredStar;
+                star2.sprite = coloredStar;
+            }
+            if (GlobalData.RecyclingGameScore > 10)
+            {
+                star1.sprite = coloredStar;
+                star2.sprite = coloredStar;
+                star3.sprite = coloredStar;
+            }
         }
     }
     public void BackToTown()
