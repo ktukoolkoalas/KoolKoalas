@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TrashController : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class TrashController : MonoBehaviour
     public GameObject PlasticObject;
     public GameObject GlassObject;
     private GameObject[] TrashObjects = new GameObject[3];
+    public GameObject gameover;
+    public Text totalScore;
+    public Text coins;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,22 @@ public class TrashController : MonoBehaviour
         if (Input.GetKey("escape"))
         {
             SceneManager.LoadScene("MainScene");
+        }
+        if(GlobalData.RecyclingGameLifeCount <= 0)
+        {
+            gameover.SetActive(true);
+            totalScore.text = GlobalData.RecyclingGameScore.ToString();
+            coins.text = GlobalData.RecyclingGameScore.ToString();
+            GlobalData.TrashGameDropping = false;
+        }
+    }
+    public void BackToTown()
+    {
+        SceneManager.LoadScene("MainScene");
+        GlobalData.KoinChange += GlobalData.RecyclingGameScore;
+        if (GlobalData.RecyclingGameScore >= GlobalData.restaurantNeededScore)
+        {
+            GlobalData.ProgressDone += 1;
         }
     }
 }

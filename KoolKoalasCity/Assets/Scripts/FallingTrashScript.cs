@@ -16,6 +16,7 @@ public class FallingTrashScript : MonoBehaviour
     public ParticleSystem Red;
     public ParticleSystem Green;
     public AudioSource collisionSound;
+    public GameObject timeover;
 
 
     // Start is called before the first frame update
@@ -39,8 +40,9 @@ public class FallingTrashScript : MonoBehaviour
         if (GlobalData.RecyclingGameLifeCount <= 0)
         {
             Stop();
-            SceneManager.LoadScene("EndScene");
+            //SceneManager.LoadScene("EndScene");
             //GlobalData.RecyclingGameScore = 0;
+            timeover.SetActive(true);
         }
 
         //left side of the screen
