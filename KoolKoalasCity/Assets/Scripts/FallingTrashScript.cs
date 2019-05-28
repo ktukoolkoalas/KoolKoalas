@@ -39,8 +39,6 @@ public class FallingTrashScript : MonoBehaviour
         if (GlobalData.RecyclingGameLifeCount <= 0)
         {
             Stop();
-            SceneManager.LoadScene("EndScene");
-            //GlobalData.RecyclingGameScore = 0;
         }
 
         //left side of the screen
