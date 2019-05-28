@@ -7,9 +7,13 @@ using UnityEngine;
 
 public class SaveController : MonoBehaviour
 {
+    bool inProgress = false;
 
     public void SaveFile()
     {
+        if (inProgress) return;
+        Debug.Log("Saving");
+        inProgress = true;
         string destination = Application.persistentDataPath + "/save.dat";
         FileStream file;
 
@@ -20,10 +24,15 @@ public class SaveController : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(file, data);
         file.Close();
+        Debug.Log("Saving Complete");
+        inProgress = false;
     }
 
     public void LoadFile()
     {
+        if (inProgress) return;
+        Debug.Log("Loading");
+        inProgress = true;
         string destination = Application.persistentDataPath + "/save.dat";
         FileStream file;
 
@@ -39,8 +48,10 @@ public class SaveController : MonoBehaviour
         file.Close();
 
         data.UpdateGame();
+        Debug.Log("Loading complete");
+        inProgress = false;
     }
-
+    [System.Serializable]
     public class Save
     {
         private int Koins { get; set; }
