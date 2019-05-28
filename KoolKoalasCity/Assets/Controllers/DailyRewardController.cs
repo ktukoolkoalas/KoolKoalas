@@ -32,6 +32,7 @@ public class DailyRewardController : MonoBehaviour
     public void ShowDailyReward()
     {
         RewardTable.SetActive(true);
+        RewardTable.transform.SetAsLastSibling();
         int RewardSize = GenerateRewardSize();
         GlobalData.KoinChange += RewardSize;
         RewardSizeText.text = RewardSize.ToString();
