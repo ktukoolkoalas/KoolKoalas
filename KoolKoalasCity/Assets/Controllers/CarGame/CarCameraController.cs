@@ -23,10 +23,20 @@ public class CarCameraController : MonoBehaviour
     [SerializeField] int ScaleParts = 50;
     [SerializeField] float SizeMultiplier = 0.5f;
 
+    [SerializeField] Image Star1;
+    [SerializeField] Image Star2;
+    [SerializeField] Image Star3;
+    [SerializeField] Sprite StarOff;
+    [SerializeField] Sprite StarOn;
+
     // Start is called before the first frame update
     void Start()
     {
         _observableRigidBody = observable.GetComponent<Rigidbody>();
+
+        Star1.sprite = StarOff;
+        Star2.sprite = StarOff;
+        Star3.sprite = StarOff;
     }
 
     // Update is called once per frame
@@ -34,7 +44,7 @@ public class CarCameraController : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
-            SceneManager.LoadScene("MainScene");
+            GoBack();
         }
 
         if (observable == null) return;
@@ -68,13 +78,13 @@ public class CarCameraController : MonoBehaviour
 
     public void ShowScore()
     {
-        StartCoroutine(ScoreScreen());
+        ScoreScreen();
     }
 
-    IEnumerator ScoreScreen()
+    public void ScoreScreen()
     {
         ScorePanel.SetActive(true);
-        Text text = ScorePanel.transform.GetChild(0).Find("ScorePositionText").GetComponent<Text>();
+        Text text = ScorePanel.transform.Find("MiddleText").GetChild(0).GetComponent<Text>();
         int racePosition = observable.GetComponent<CarController>().GetRacePosition();
         string pos = "";
         int koalas = 0;
@@ -83,43 +93,35 @@ public class CarCameraController : MonoBehaviour
             case 1:
                 pos = "1st";
                 koalas = 3;
+                Star1.sprite = StarOn;
+                Star2.sprite = StarOn;
+                Star3.sprite = StarOn;
                 break;
             case 2:
                 pos = "2nd";
                 koalas = 2;
+                Star1.sprite = StarOn;
+                Star2.sprite = StarOn;
                 break;
             case 3:
                 pos = "3rd";
                 koalas = 2;
+                Star1.sprite = StarOn;
+                Star2.sprite = StarOn;
                 break;
             default:
                 pos = racePosition + "th";
                 koalas = 1;
+                Star1.sprite = StarOn;
                 break;
         }
-        text.text = "You came in " + pos + "!";
-        yield return new WaitForSeconds(1);
+        text.text = pos ;
         
-        for(int i = 1; i <= koalas; i++)
-        {
-            Transform koala = ScorePanel.transform.GetChild(0).Find("Koala" + i + "Image");
-            koala.gameObject.SetActive(true);
-            float lowerX = koala.localScale.x * SizeMultiplier / ScaleParts;
-            float lowerY = koala.localScale.y * SizeMultiplier / ScaleParts;
-            koala.localScale.Set(koala.localScale.x * (SizeMultiplier + 1), koala.localScale.y * (SizeMultiplier + 1), koala.localScale.z);
-            for (int j = 0; j < ScaleParts; j++)
-            {
-                koala.localScale.Set(koala.localScale.x - lowerX, koala.localScale.y - lowerY, koala.localScale.z);
-                yield return null;
-            }
-        }
-        yield return new WaitForSeconds(3);
         if(GlobalData.RaceCompleted < koalas)
         {
             GlobalData.ProgressDone = koalas - GlobalData.RaceCompleted;
             GlobalData.RaceCompleted = koalas;
         }
-        SceneManager.LoadScene("MainScene");
 
     }
 
@@ -128,5 +130,10 @@ public class CarCameraController : MonoBehaviour
         InstructionPanel.SetActive(false);
 
         StartCoroutine(CountDownRace());
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
