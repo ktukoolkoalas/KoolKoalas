@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public HeartController HeartAlertObject;
     public Text ProgressText;
     public GameObject Welcome;
+    public ParticleSystem gas;
 
     SaveController saving;
     float nextSaveTime = 0.0f;
@@ -33,6 +34,11 @@ public class GameController : MonoBehaviour
         DeleteTrash(0.3f, "Trash3");
         DeleteTrash(0.4f, "Trash4");
         DeleteTrash(0.5f, "Trash5");
+
+        if (GlobalData.ProgressBarValue >= 0.5f)
+        {
+            gas.Pause();
+        }
 
         ProgressText.text = (GlobalData.ProgressBarValue * 10).ToString() + "/100";
 
