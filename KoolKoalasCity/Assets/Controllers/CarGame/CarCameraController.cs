@@ -23,10 +23,20 @@ public class CarCameraController : MonoBehaviour
     [SerializeField] int ScaleParts = 50;
     [SerializeField] float SizeMultiplier = 0.5f;
 
+    [SerializeField] Image Star1;
+    [SerializeField] Image Star2;
+    [SerializeField] Image Star3;
+    [SerializeField] Sprite StarOff;
+    [SerializeField] Sprite StarOn;
+
     // Start is called before the first frame update
     void Start()
     {
         _observableRigidBody = observable.GetComponent<Rigidbody>();
+
+        Star1.sprite = StarOff;
+        Star2.sprite = StarOff;
+        Star3.sprite = StarOff;
     }
 
     // Update is called once per frame
@@ -83,18 +93,26 @@ public class CarCameraController : MonoBehaviour
             case 1:
                 pos = "1st";
                 koalas = 3;
+                Star1.sprite = StarOn;
+                Star2.sprite = StarOn;
+                Star3.sprite = StarOn;
                 break;
             case 2:
                 pos = "2nd";
                 koalas = 2;
+                Star1.sprite = StarOn;
+                Star2.sprite = StarOn;
                 break;
             case 3:
                 pos = "3rd";
                 koalas = 2;
+                Star1.sprite = StarOn;
+                Star2.sprite = StarOn;
                 break;
             default:
                 pos = racePosition + "th";
                 koalas = 1;
+                Star1.sprite = StarOn;
                 break;
         }
         text.text = pos ;
