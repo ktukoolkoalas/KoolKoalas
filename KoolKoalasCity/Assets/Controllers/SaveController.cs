@@ -52,14 +52,45 @@ public class SaveController : MonoBehaviour
         private int Food { get; set; }
         private int Clean { get; set; }
         private int Happy { get; set; }
+        private bool[] Bought { get; set; }
+        private GameObject[] Shown { get; set; }
+        private DateTime LastPlayed { get; set; }
+        private DateTime LastCleaned { get; set; }
+        private DateTime LastFed { get; set; }
         public Save()
         {
-            
+            Koins = GlobalData.KoinCounter;
+            Progress = GlobalData.ProgressBarValue;
+            Memory = GlobalData.MemoryGameBeaten;
+            RewardTime = GlobalData.NextRewardTime;
+            Recycling = GlobalData.RecyclingCompleted;
+            Race = GlobalData.RaceCompleted;
+            Food = GlobalData.food;
+            Clean = GlobalData.clean;
+            Happy = GlobalData.happy;
+            Bought = GlobalData.BoughtReserve;
+            Shown = GlobalData.ShownReserve;
+            LastPlayed = GlobalData.lastPlayed;
+            LastCleaned = GlobalData.lastCleaned;
+            LastFed = GlobalData.lastFed;
         }
 
         public void UpdateGame()
         {
-
+            GlobalData.KoinCounter = Koins;
+            GlobalData.ProgressBarValue = Progress;
+            GlobalData.MemoryGameBeaten = Memory;
+            GlobalData.NextRewardTime = RewardTime;
+            GlobalData.RecyclingCompleted = Recycling;
+            GlobalData.RaceCompleted = Race;
+            GlobalData.food = Food;
+            GlobalData.clean = Clean;
+            GlobalData.happy = Happy;
+            GlobalData.BoughtReserve = Bought;
+            GlobalData.ShownReserve = Shown;
+            GlobalData.lastFed = LastFed;
+            GlobalData.lastPlayed = LastPlayed;
+            GlobalData.lastCleaned = LastCleaned;
         }
     }
 }

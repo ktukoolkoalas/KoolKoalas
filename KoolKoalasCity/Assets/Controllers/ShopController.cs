@@ -49,6 +49,122 @@ public class ShopController : MonoBehaviour
     public GameObject ShowButton77;
     public GameObject ReStuff7;
 
+    public void Start()
+    {
+        for (int i = 0; i < GlobalData.BoughtReserve.Length; i++)
+        {
+            if (GlobalData.BoughtReserve[i])
+            {
+                switch (i)
+                {
+                    case 0:
+                        ReFood1.SetActive(true);
+                        ShowButton1.transform.SetAsLastSibling();
+                        break;
+                    case 1:
+                        ShowButton2.SetActive(true);
+                        ShowButton2.transform.SetAsLastSibling();
+                        break;
+                    case 2:
+                        ShowButton3.SetActive(true);
+                        ShowButton3.transform.SetAsLastSibling();
+                        break;
+                    case 3:
+                        ShowButton4.SetActive(true);
+                        ShowButton4.transform.SetAsLastSibling();
+                        break;
+                    case 4:
+                        ShowButton5.SetActive(true);
+                        ShowButton5.transform.SetAsLastSibling();
+                        break;
+                    case 5:
+                        ShowButton11.SetActive(true);
+                        ShowButton11.transform.SetAsLastSibling();
+                        break;
+                    case 6:
+                        ShowButton22.SetActive(true);
+                        ShowButton22.transform.SetAsLastSibling();
+                        break;
+                    case 7:
+                        ShowButton33.SetActive(true);
+                        ShowButton33.transform.SetAsLastSibling();
+                        break;
+                    case 8:
+                        ShowButton44.SetActive(true);
+                        ShowButton44.transform.SetAsLastSibling();
+                        break;
+                    case 9:
+                        ShowButton55.SetActive(true);
+                        ShowButton55.transform.SetAsLastSibling();
+                        break;
+                    case 10:
+                        ShowButton66.SetActive(true);
+                        ShowButton66.transform.SetAsLastSibling();
+                        break;
+                    case 11:
+                        ShowButton77.SetActive(true);
+                        ShowButton77.transform.SetAsLastSibling();
+                        break;
+                    default:
+                        Debug.Log("There are more objects then coded for");
+                        break;
+                }
+            }
+            if (GlobalData.ShownReserve[i] != null)
+            {
+                switch (i)
+                {
+                    case 0:
+                        SetObject(ReFood1, GlobalData.ShownReserve[i]);
+                        break;
+                    case 1:
+                        SetObject(ReFood2, GlobalData.ShownReserve[i]);
+                        break;
+                    case 2:
+                        SetObject(ReFood3, GlobalData.ShownReserve[i]);
+                        break;
+                    case 3:
+                        SetObject(ReFood4, GlobalData.ShownReserve[i]);
+                        break;
+                    case 4:
+                        SetObject(ReFood5, GlobalData.ShownReserve[i]);
+                        break;
+                    case 5:
+                        SetObject(ReStuff1, GlobalData.ShownReserve[i]);
+                        break;
+                    case 6:
+                        SetObject(ReStuff2, GlobalData.ShownReserve[i]);
+                        break;
+                    case 7:
+                        SetObject(ReStuff3, GlobalData.ShownReserve[i]);
+                        break;
+                    case 8:
+                        SetObject(ReStuff4, GlobalData.ShownReserve[i]);
+                        break;
+                    case 9:
+                        SetObject(ReStuff5, GlobalData.ShownReserve[i]);
+                        break;
+                    case 10:
+                        SetObject(ReStuff6, GlobalData.ShownReserve[i]);
+                        break;
+                    case 11:
+                        SetObject(ReStuff7, GlobalData.ShownReserve[i]);
+                        break;
+                    default:
+                        Debug.Log("There are more objects then coded for");
+                        break;
+                }
+            }
+        }
+    }
+
+    private void SetObject(GameObject target, GameObject source)
+    {
+        target.SetActive(true);
+        target.transform.SetAsLastSibling();
+        target.transform.position = source.transform.position;
+    }
+
     public void ShowShop()
     {
         ShopWindow.SetActive(true);
@@ -99,6 +215,8 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= FoodPrice;
             ShowButton1.SetActive(true);
             ShowButton1.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[0] = true;
+
         }
         else
         {
@@ -112,6 +230,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReFood1.SetActive(true);
         ReFood1.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[0] = ReFood1;
     }
 
     public void BuyFood2()
@@ -121,6 +240,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= FoodPrice;
             ShowButton2.SetActive(true);
             ShowButton2.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[1] = true;
         }
         else
         {
@@ -134,6 +254,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReFood2.SetActive(true);
         ReFood2.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[1] = ReFood2;
     }
 
     public void BuyFood3()
@@ -143,6 +264,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= FoodPrice;
             ShowButton3.SetActive(true);
             ShowButton3.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[2] = true;
         }
         else
         {
@@ -156,6 +278,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReFood3.SetActive(true);
         ReFood3.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[2] = ReFood3;
     }
 
     public void BuyFood4()
@@ -165,6 +288,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= FoodPrice;
             ShowButton4.SetActive(true);
             ShowButton4.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[3] = true;
         }
         else
         {
@@ -178,6 +302,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReFood4.SetActive(true);
         ReFood4.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[3] = ReFood4;
     }
 
     public void BuyFood5()
@@ -187,6 +312,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= FoodPrice;
             ShowButton5.SetActive(true);
             ShowButton5.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[4] = true;
         }
         else
         {
@@ -200,6 +326,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReFood5.SetActive(true);
         ReFood5.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[4] = ReFood5;
     }
 
     //public void BuyStuff()
@@ -222,6 +349,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton11.SetActive(true);
             ShowButton11.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[5] = true;
         }
         else
         {
@@ -235,6 +363,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff1.SetActive(true);
         ReStuff1.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[5] = ReStuff1;
     }
 
     public void BuyStuff2()
@@ -244,6 +373,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton22.SetActive(true);
             ShowButton22.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[6] = true;
         }
         else
         {
@@ -257,6 +387,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff2.SetActive(true);
         ReStuff2.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[6] = ReStuff2;
     }
 
     public void BuyStuff3()
@@ -266,6 +397,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton33.SetActive(true);
             ShowButton33.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[7] = true;
         }
         else
         {
@@ -279,6 +411,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff3.SetActive(true);
         ReStuff3.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[7] = ReStuff3;
     }
 
     public void BuyStuff4()
@@ -288,6 +421,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton44.SetActive(true);
             ShowButton44.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[8] = true;
         }
         else
         {
@@ -301,6 +435,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff4.SetActive(true);
         ReStuff4.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[8] = ReStuff4;
     }
 
     public void BuyStuff5()
@@ -310,6 +445,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton55.SetActive(true);
             ShowButton55.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[9] = true;
         }
         else
         {
@@ -323,6 +459,7 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff5.SetActive(true);
         ReStuff5.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[9] = ReStuff5;
     }
 
     public void BuyStuff6()
@@ -356,6 +493,7 @@ public class ShopController : MonoBehaviour
             GlobalData.KoinChange -= StuffPrice;
             ShowButton77.SetActive(true);
             ShowButton77.transform.SetAsLastSibling();
+            GlobalData.BoughtReserve[11] = true;
         }
         else
         {
@@ -369,5 +507,6 @@ public class ShopController : MonoBehaviour
         CloseShop();
         ReStuff7.SetActive(true);
         ReStuff7.transform.SetAsLastSibling();
+        GlobalData.ShownReserve[11] = ReStuff7;
     }
 }
