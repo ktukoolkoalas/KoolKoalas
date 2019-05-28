@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class RestaurantController : MonoBehaviour
 {
     [SerializeField] private Sprite[] images;
+    public AudioSource click;
+    public AudioSource correctsound;
+    public AudioSource wrongsound;
+
     private int score = 0;
     public Sprite coloredKoala;
     public Image star1;
@@ -251,6 +255,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[0];
         if (clickCount == 4)
             choice4.sprite = images[0];
+        click.Play();
+
     }
     public void Donut() { answer[clickCount++] = 1;
         if (clickCount == 1)
@@ -261,6 +267,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[1];
         if (clickCount == 4)
             choice4.sprite = images[1];
+        click.Play();
+
     }
     public void Soda() { answer[clickCount++] = 2;
         if (clickCount == 1)
@@ -271,6 +279,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[2];
         if (clickCount == 4)
             choice4.sprite = images[2];
+        click.Play();
+
     }
     public void IceCream() { answer[clickCount++] = 3;
         if (clickCount == 1)
@@ -281,6 +291,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[3];
         if (clickCount == 4)
             choice4.sprite = images[3];
+        click.Play();
+
     }
     public void Cupcake() { answer[clickCount++] = 4;
         if (clickCount == 1)
@@ -291,6 +303,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[4];
         if (clickCount == 4)
             choice4.sprite = images[4];
+        click.Play();
+
     }
     public void Burger() { answer[clickCount++] = 5;
         if (clickCount == 1)
@@ -299,9 +313,10 @@ public class RestaurantController : MonoBehaviour
             choice2.sprite = images[5];
         if (clickCount == 3)
             choice3.sprite = images[5];
-            choice3.sprite = images[5];
         if (clickCount == 4)
             choice4.sprite = images[5];
+        click.Play();
+
     }
     public void Coffee() { answer[clickCount++] = 6;
         if (clickCount == 1)
@@ -312,6 +327,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[6];
         if (clickCount == 4)
             choice4.sprite = images[6];
+        click.Play();
+
     }
     public void Fries() { answer[clickCount++] = 7;
         if (clickCount == 1)
@@ -322,6 +339,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[7];
         if (clickCount == 4)
             choice4.sprite = images[7];
+        click.Play();
+
     }
     public void Juice() { answer[clickCount++] = 8;
         if (clickCount == 1)
@@ -332,6 +351,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[8];
         if (clickCount == 4)
             choice4.sprite = images[8];
+        click.Play();
+
     }
     public void Muffin() { answer[clickCount++] = 9;
         if (clickCount == 1)
@@ -342,6 +363,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[9];
         if (clickCount == 4)
             choice4.sprite = images[9];
+        click.Play();
+
     }
     public void Popcorn() { answer[clickCount++] = 10;
         if (clickCount == 1)
@@ -352,6 +375,8 @@ public class RestaurantController : MonoBehaviour
             choice3.sprite = images[10];
         if (clickCount == 4)
             choice4.sprite = images[10];
+        click.Play();
+
     }
     private int[] Sort(int[] numbers)
     {
@@ -383,6 +408,7 @@ public class RestaurantController : MonoBehaviour
     {
         DisableButtons();
         correct.SetActive(true);
+        correctsound.Play();
         yield return new WaitForSeconds(0.5f);
         correct.SetActive(false);
     }
@@ -390,6 +416,7 @@ public class RestaurantController : MonoBehaviour
     {
         DisableButtons();
         wrong.SetActive(true);
+        wrongsound.Play();
         yield return new WaitForSeconds(0.5f);
         wrong.SetActive(false);
     }
