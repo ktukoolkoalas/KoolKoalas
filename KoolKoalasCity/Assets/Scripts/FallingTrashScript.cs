@@ -16,7 +16,6 @@ public class FallingTrashScript : MonoBehaviour
     public ParticleSystem Red;
     public ParticleSystem Green;
     public AudioSource collisionSound;
-    public GameObject timeover;
 
 
     // Start is called before the first frame update
@@ -42,7 +41,7 @@ public class FallingTrashScript : MonoBehaviour
             Stop();
             //SceneManager.LoadScene("EndScene");
             //GlobalData.RecyclingGameScore = 0;
-            timeover.SetActive(true);
+            //timeover.SetActive(true);
         }
 
         //left side of the screen

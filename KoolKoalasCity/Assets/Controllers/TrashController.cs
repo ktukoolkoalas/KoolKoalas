@@ -16,10 +16,9 @@ public class TrashController : MonoBehaviour
     public GameObject GlassObject;
     private GameObject[] TrashObjects = new GameObject[3];
     public GameObject gameover;
+    public GameObject instructions;
     public Text totalScore;
     public Text coins;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +29,7 @@ public class TrashController : MonoBehaviour
         TrashObjects[0] = PaperObject;
         TrashObjects[1] = PlasticObject;
         TrashObjects[2] = GlassObject;
-
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -47,6 +46,7 @@ public class TrashController : MonoBehaviour
         }
         if(GlobalData.RecyclingGameLifeCount <= 0)
         {
+            Time.timeScale = 0;
             gameover.SetActive(true);
             totalScore.text = GlobalData.RecyclingGameScore.ToString();
             coins.text = GlobalData.RecyclingGameScore.ToString();
@@ -61,5 +61,11 @@ public class TrashController : MonoBehaviour
         {
             GlobalData.ProgressDone += 1;
         }
+    }
+    public void PlayGame ()
+    {
+        instructions.SetActive(false);
+        GlobalData.TrashGameDropping = true;
+        Time.timeScale = 1;
     }
 }
