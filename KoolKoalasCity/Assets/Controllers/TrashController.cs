@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TrashController : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class TrashController : MonoBehaviour
     public GameObject PlasticObject;
     public GameObject GlassObject;
     private GameObject[] TrashObjects = new GameObject[3];
+    public GameObject gameover;
+    public GameObject instructions;
+    public Text totalScore;
+    public Text coins;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +29,7 @@ public class TrashController : MonoBehaviour
         TrashObjects[0] = PaperObject;
         TrashObjects[1] = PlasticObject;
         TrashObjects[2] = GlassObject;
-
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
@@ -39,5 +44,28 @@ public class TrashController : MonoBehaviour
         {
             SceneManager.LoadScene("MainScene");
         }
+        if(GlobalData.RecyclingGameLifeCount <= 0)
+        {
+            Time.timeScale = 0;
+            gameover.SetActive(true);
+            totalScore.text = GlobalData.RecyclingGameScore.ToString();
+            coins.text = GlobalData.RecyclingGameScore.ToString();
+            GlobalData.TrashGameDropping = false;
+        }
+    }
+    public void BackToTown()
+    {
+        SceneManager.LoadScene("MainScene");
+        GlobalData.KoinChange += GlobalData.RecyclingGameScore;
+        if (GlobalData.RecyclingGameScore >= GlobalData.restaurantNeededScore)
+        {
+            GlobalData.ProgressDone += 1;
+        }
+    }
+    public void PlayGame ()
+    {
+        instructions.SetActive(false);
+        GlobalData.TrashGameDropping = true;
+        Time.timeScale = 1;
     }
 }
