@@ -17,7 +17,7 @@ public static class GlobalData
     public static int ProgressDone = 0;
 
     public static bool TrashGameDropping = false;
-    public static int MemoryGameLevel = 2;
+    public static int MemoryGameLevel = 1;
     public static int MemoryGameBeaten = 0;
     public static int restaurantNeededScore = 2;
 
@@ -29,9 +29,9 @@ public static class GlobalData
     public static int RecyclingGameLifeCount = 3;
     public static int RecyclingCompleted = 0;
 
-    public static int food = 0;
-    public static int clean = 0;
-    public static int happy = 0;
+    public static int food = 50;
+    public static int clean = 50;
+    public static int happy = 50;
 
     public static DateTime lastFed = new DateTime();
     public static DateTime lastCleaned = new DateTime();
