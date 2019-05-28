@@ -68,6 +68,7 @@ public class SaveController : MonoBehaviour
         private DateTime LastPlayed { get; set; }
         private DateTime LastCleaned { get; set; }
         private DateTime LastFed { get; set; }
+        private bool Tutorial { get; set; }
         public Save()
         {
             Koins = GlobalData.KoinCounter;
@@ -84,6 +85,7 @@ public class SaveController : MonoBehaviour
             LastPlayed = GlobalData.lastPlayed;
             LastCleaned = GlobalData.lastCleaned;
             LastFed = GlobalData.lastFed;
+            Tutorial = GlobalData.tutorialShown;
         }
 
         public void UpdateGame()
@@ -102,6 +104,7 @@ public class SaveController : MonoBehaviour
             GlobalData.lastFed = LastFed;
             GlobalData.lastPlayed = LastPlayed;
             GlobalData.lastCleaned = LastCleaned;
+            GlobalData.tutorialShown = Tutorial;
         }
     }
 }
