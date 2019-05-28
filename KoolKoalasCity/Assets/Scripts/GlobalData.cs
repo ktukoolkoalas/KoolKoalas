@@ -41,5 +41,4 @@ public static class GlobalData
 
     public static bool[] BoughtReserve = new bool[12];
     public static GameObject[] ShownReserve = new GameObject[12];
-
 }

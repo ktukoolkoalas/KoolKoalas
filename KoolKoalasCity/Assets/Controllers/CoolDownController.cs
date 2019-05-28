@@ -15,9 +15,9 @@ public class CoolDownController : MonoBehaviour
     void Start()
     {
         CurrentTime = DateTime.Now;
-        if (GlobalData.NextHeartTime == null)
+        if (GlobalData.NextHeartTime == default(DateTime))
             GlobalData.NextHeartTime = CurrentTime.AddSeconds(NextHeartSeconds);
-        if (GlobalData.NextPopUpTime == null)
+        if (GlobalData.NextPopUpTime == default(DateTime))
             GlobalData.NextPopUpTime = CurrentTime.AddSeconds(NextPopupSeconds);
     }
 
@@ -26,12 +26,12 @@ public class CoolDownController : MonoBehaviour
     {
         CurrentTime = DateTime.Now;
         
-        if (GlobalData.NextHeartTime != null && CurrentTime >= GlobalData.NextHeartTime)
+        if (GlobalData.NextHeartTime != default(DateTime) && CurrentTime >= GlobalData.NextHeartTime)
         {
             GlobalData.HeartChange++; //pakeist i +5
             GlobalData.NextHeartTime = CurrentTime.AddSeconds(NextHeartSeconds);
         }
-        if (GlobalData.NextPopUpTime != null && CurrentTime >= GlobalData.NextPopUpTime)
+        if (GlobalData.NextPopUpTime != default(DateTime) && CurrentTime >= GlobalData.NextPopUpTime)
         {
             GlobalData.PopUpCounter++; //pakeist i 5
             GlobalData.NextPopUpTime = CurrentTime.AddSeconds(NextPopupSeconds);
