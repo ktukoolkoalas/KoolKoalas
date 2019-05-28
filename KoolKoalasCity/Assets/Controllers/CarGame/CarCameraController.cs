@@ -97,7 +97,7 @@ public class CarCameraController : MonoBehaviour
                 koalas = 1;
                 break;
         }
-        text.text = "You came in " + pos + "!";
+        text.text = pos ;
         
         if(GlobalData.RaceCompleted < koalas)
         {
