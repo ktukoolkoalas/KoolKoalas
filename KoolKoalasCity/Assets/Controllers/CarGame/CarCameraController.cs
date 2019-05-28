@@ -74,7 +74,7 @@ public class CarCameraController : MonoBehaviour
     IEnumerator ScoreScreen()
     {
         ScorePanel.SetActive(true);
-        Text text = ScorePanel.transform.GetChild(0).Find("ScorePositionText").GetComponent<Text>();
+        Text text = ScorePanel.transform.Find("MiddleText").GetChild(0).GetComponent<Text>();
         int racePosition = observable.GetComponent<CarController>().GetRacePosition();
         string pos = "";
         int koalas = 0;
