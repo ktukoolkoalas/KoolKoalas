@@ -34,7 +34,7 @@ public class CarCameraController : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
-            SceneManager.LoadScene("MainScene");
+            GoBack();
         }
 
         if (observable == null) return;
@@ -68,10 +68,10 @@ public class CarCameraController : MonoBehaviour
 
     public void ShowScore()
     {
-        StartCoroutine(ScoreScreen());
+        ScoreScreen();
     }
 
-    IEnumerator ScoreScreen()
+    public void ScoreScreen()
     {
         ScorePanel.SetActive(true);
         Text text = ScorePanel.transform.Find("MiddleText").GetChild(0).GetComponent<Text>();
@@ -98,28 +98,12 @@ public class CarCameraController : MonoBehaviour
                 break;
         }
         text.text = "You came in " + pos + "!";
-        yield return new WaitForSeconds(1);
         
-        for(int i = 1; i <= koalas; i++)
-        {
-            Transform koala = ScorePanel.transform.GetChild(0).Find("Koala" + i + "Image");
-            koala.gameObject.SetActive(true);
-            float lowerX = koala.localScale.x * SizeMultiplier / ScaleParts;
-            float lowerY = koala.localScale.y * SizeMultiplier / ScaleParts;
-            koala.localScale.Set(koala.localScale.x * (SizeMultiplier + 1), koala.localScale.y * (SizeMultiplier + 1), koala.localScale.z);
-            for (int j = 0; j < ScaleParts; j++)
-            {
-                koala.localScale.Set(koala.localScale.x - lowerX, koala.localScale.y - lowerY, koala.localScale.z);
-                yield return null;
-            }
-        }
-        yield return new WaitForSeconds(3);
         if(GlobalData.RaceCompleted < koalas)
         {
             GlobalData.ProgressDone = koalas - GlobalData.RaceCompleted;
             GlobalData.RaceCompleted = koalas;
         }
-        SceneManager.LoadScene("MainScene");
 
     }
 
@@ -128,5 +112,10 @@ public class CarCameraController : MonoBehaviour
         InstructionPanel.SetActive(false);
 
         StartCoroutine(CountDownRace());
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
