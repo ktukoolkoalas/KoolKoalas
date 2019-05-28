@@ -17,6 +17,7 @@ public class DragAndDrop : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             selected = false;
+            
         }
     }
 

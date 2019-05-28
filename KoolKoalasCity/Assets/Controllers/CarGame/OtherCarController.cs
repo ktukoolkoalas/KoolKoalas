@@ -14,19 +14,19 @@ public class OtherCarController : CarController
         _rigidBody = GetComponent<Rigidbody>();
         NextCheckmark = Checkmarks.transform.GetChild(0).gameObject;
         Debug.Log(NextCheckmark.transform.name);
-        audio = gameObject.AddComponent<AudioSource>();
-        audio.playOnAwake = false;
-        audio.clip = SoundLow;
-        audio.volume = 0.1f;
-        audio.maxDistance = 100;
-        audio.spatialBlend = 0.8f;
+        currAudio = gameObject.AddComponent<AudioSource>();
+        currAudio.playOnAwake = false;
+        currAudio.clip = SoundLow;
+        currAudio.volume = 0.1f;
+        currAudio.maxDistance = 100;
+        currAudio.spatialBlend = 0.8f;
     }
 
     void FixedUpdate()
     {
-        if(MovementEnabled == 1 && !audio.isPlaying)
+        if(MovementEnabled == 1 && !currAudio.isPlaying)
         {
-            audio.Play();
+            currAudio.Play();
         }
         float speed = _rigidBody.velocity.magnitude / 1000;
 
@@ -37,11 +37,11 @@ public class OtherCarController : CarController
         realSpeed = _rigidBody.velocity.magnitude;
         if(realSpeed < 30)
         {
-            audio.clip = SoundLow;
+            currAudio.clip = SoundLow;
         }
         else 
         {
-            audio.clip = SoundMid;
+            currAudio.clip = SoundMid;
         }
     }
 

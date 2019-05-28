@@ -15,14 +15,14 @@ public class DailyRewardController : MonoBehaviour
     private void Start()
     {
         CurrentTime = DateTime.Now;
-        if (GlobalData.NextRewardTime == null)
+        if (GlobalData.NextRewardTime == default(DateTime))
             GlobalData.NextRewardTime = CurrentTime.AddSeconds(NextRewardSeconds);
     }
 
     private void Update()
     {
         CurrentTime = DateTime.Now;
-        if (GlobalData.NextRewardTime != null && CurrentTime >= GlobalData.NextRewardTime)
+        if (GlobalData.NextRewardTime != default(DateTime) && CurrentTime >= GlobalData.NextRewardTime)
         {
             RewardButton.SetActive(true);
             GlobalData.NextRewardTime = CurrentTime.AddSeconds(NextRewardSeconds);
@@ -30,17 +30,18 @@ public class DailyRewardController : MonoBehaviour
     }
 
     public void ShowDailyReward()
-    {
+    {        
         RewardTable.SetActive(true);
+        RewardButton.SetActive(false);
+        RewardTable.transform.SetAsLastSibling();
         int RewardSize = GenerateRewardSize();
         GlobalData.KoinChange += RewardSize;
         RewardSizeText.text = RewardSize.ToString();
-    }
+    }   
 
     public void CloseDailyReward()
     {
         RewardTable.SetActive(false);
-        RewardButton.SetActive(false);
     }
 
     public int GenerateRewardSize()
